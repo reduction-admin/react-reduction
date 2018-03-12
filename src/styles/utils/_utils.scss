@@ -1,0 +1,38 @@
+// utils
+.can-click {
+  cursor: pointer;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.hidden-xl {
+  @include media-breakpoint-only(xl) {
+    display: none;
+  }
+}
+
+.hidden-lg {
+  @include media-breakpoint-only(lg) {
+    display: none;
+  }
+}
+
+.hidden-md {
+  @include media-breakpoint-only(md) {
+    display: none;
+  }
+}
+
+.hidden-sm {
+  @include media-breakpoint-only(sm) {
+    display: none;
+  }
+}
+
+.hidden-xs {
+  @include media-breakpoint-only(xs) {
+    display: none;
+  }
+}
