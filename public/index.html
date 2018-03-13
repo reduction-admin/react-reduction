@@ -9,6 +9,23 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
+
+  <meta name="application-name" content="%REACT_APP_NAME%">
+  <meta name="description" content="%REACT_APP_DESCRIPTION%">
+
+  <meta property="og:url" content="%REACT_APP_URL%">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="%REACT_APP_NAME%">
+  <meta property="og:image" content="%REACT_APP_URL%%PUBLIC_URL%img/screenshots/reduction-admin.jpg">
+  <meta property="og:description" content="%REACT_APP_DESCRIPTION%">
+  <meta property="og:site_name" content="%REACT_APP_NAME%">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="%REACT_APP_URL%">
+  <meta name="twitter:title" content="%REACT_APP_NAME%">
+  <meta name="twitter:description" content="%REACT_APP_DESCRIPTION%">
+  <meta name="twitter:image" content="%REACT_APP_URL%%PUBLIC_URL%img/screenshots/reduction-admin.jpg">
+
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/apple-icon-57x57.png" />
@@ -37,7 +54,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>Reduction</title>
+  <title>%REACT_APP_NAME%</title>
 </head>
 
 <body>
