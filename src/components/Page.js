@@ -27,8 +27,8 @@ const Page = ({
             {title}
           </Typography>
         ) : (
-          title
-        )}
+            title
+          )}
         {breadcrumbs && (
           <Breadcrumb className={bem.e('breadcrumb')}>
             <BreadcrumbItem>Home</BreadcrumbItem>
@@ -50,7 +50,7 @@ Page.propTypes = {
   tag: PropTypes.component,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   className: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.node,
   breadcrumbs: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

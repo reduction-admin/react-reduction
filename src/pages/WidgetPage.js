@@ -19,8 +19,8 @@ const WidgetPage = ({ className, ...restProps }) => {
       breadcrumbs={[{ name: 'widgets', active: true }]}
     >
       <Row>
-        {numberWidgetsData.map(({ color }) => (
-          <Col lg={4} md={6} sm={6} xs={12} className="mb-3">
+        {numberWidgetsData.map(({ color }, index) => (
+          <Col key={index} lg={4} md={6} sm={6} xs={12} className="mb-3">
             <NumberWidget
               title="Total Profit"
               subtitle="This month"
@@ -37,8 +37,8 @@ const WidgetPage = ({ className, ...restProps }) => {
 
       <Row>
         {iconWidgetsData.map(
-          ({ bgColor, icon, title, subtitle, ...restProps }) => (
-            <Col lg={4} md={6} sm={6} xs={12} className="mb-3">
+          ({ bgColor, icon, title, subtitle, ...restProps }, index) => (
+            <Col key={index} lg={4} md={6} sm={6} xs={12} className="mb-3">
               <IconWidget
                 bgColor={bgColor}
                 icon={icon}

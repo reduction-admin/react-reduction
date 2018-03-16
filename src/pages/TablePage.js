@@ -8,7 +8,7 @@ const tableProps = ['', 'bordered', 'striped', 'hover'];
 
 const TablePage = () => {
   return (
-    <Page title="Tables" breadcrumbs={[{ name: 'tables', active: true }]}>
+    <Page title="Tables" breadcrumbs={[{ name: 'tables', active: true }]} className="TablePage">
       {tableProps.map(table => (
         <Row>
           <Col>
