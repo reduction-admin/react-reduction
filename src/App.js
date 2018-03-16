@@ -11,7 +11,7 @@ import {
 } from 'react-icons/lib/md';
 import NotificationSystem from 'react-notification-system';
 
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 // layouts
 import { Header, Sidebar, Content, Footer } from 'components/Layout';
@@ -44,7 +44,7 @@ class App extends React.Component {
       .classList.contains('cr-sidebar--open');
   }
 
-  componentWillReceiveProps({ breakpoint, ...rest }) {
+  componentWillReceiveProps({ breakpoint }) {
     if (breakpoint !== this.props.breakpoint) {
       this.checkBreakpoint(breakpoint);
     }
@@ -112,46 +112,48 @@ class App extends React.Component {
 
   render() {
     return (
-      <GAListener>
-        <main className="cr-app bg-light">
-          <Sidebar />
-          <Content fluid onClick={this.handleContentClick}>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={DashboardPage} />
-              <Route path="/buttons" component={ButtonPage} />
-              <Route path="/cards" component={CardPage} />
-              <Route path="/widgets" component={WidgetPage} />
-              <Route path="/typography" component={TypographyPage} />
-              <Route path="/alerts" component={AlertPage} />
-              <Route path="/tables" component={TablePage} />
-              <Route path="/badges" component={BadgePage} />
-              <Route path="/button-groups" component={ButtonGroupPage} />
-              <Route path="/dropdowns" component={DropdownPage} />
-              <Route path="/progress" component={ProgressPage} />
-              <Route path="/modals" component={ModalPage} />
-              <Route path="/forms" component={FormPage} />
-              <Route path="/input-groups" component={InputGroupPage} />
-              <Route path="/charts" component={ChartPage} />
-              <Redirect to="/" />
-            </Switch>
-            <Footer />
-          </Content>
+      <BrowserRouter>
+        <GAListener>
+          <main className="cr-app bg-light">
+            <Sidebar />
+            <Content fluid onClick={this.handleContentClick}>
+              <Header />
+              <Switch>
+                <Route exact path="/" component={DashboardPage} />
+                <Route path="/buttons" component={ButtonPage} />
+                <Route path="/cards" component={CardPage} />
+                <Route path="/widgets" component={WidgetPage} />
+                <Route path="/typography" component={TypographyPage} />
+                <Route path="/alerts" component={AlertPage} />
+                <Route path="/tables" component={TablePage} />
+                <Route path="/badges" component={BadgePage} />
+                <Route path="/button-groups" component={ButtonGroupPage} />
+                <Route path="/dropdowns" component={DropdownPage} />
+                <Route path="/progress" component={ProgressPage} />
+                <Route path="/modals" component={ModalPage} />
+                <Route path="/forms" component={FormPage} />
+                <Route path="/input-groups" component={InputGroupPage} />
+                <Route path="/charts" component={ChartPage} />
+                <Redirect to="/" />
+              </Switch>
+              <Footer />
+            </Content>
 
-          <NotificationSystem
-            dismissible={false}
-            ref={notificationSystem =>
-              (this.notificationSystem = notificationSystem)
-            }
-            style={NOTIFICATION_SYSTEM_STYLE}
-          />
-        </main>
-      </GAListener>
+            <NotificationSystem
+              dismissible={false}
+              ref={notificationSystem =>
+                (this.notificationSystem = notificationSystem)
+              }
+              style={NOTIFICATION_SYSTEM_STYLE}
+            />
+          </main>
+        </GAListener>
+      </BrowserRouter>
     );
   }
 }
 
-const query = ({ width }, { detectScreenMode }) => {
+const query = ({ width }) => {
   if (width < 575) {
     return { breakpoint: 'xs' };
   }
@@ -175,4 +177,4 @@ const query = ({ width }, { detectScreenMode }) => {
   return { breakpoint: 'xs' };
 };
 
-export default App;
+export default componentQueries(query)(App);
