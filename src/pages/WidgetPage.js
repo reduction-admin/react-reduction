@@ -1,7 +1,5 @@
 import React from 'react';
 
-import classNames from 'classnames';
-
 import { Row, Col } from 'reactstrap';
 
 import Page from 'components/Page';
@@ -9,12 +7,10 @@ import { NumberWidget, IconWidget } from 'components/Widget';
 
 import { iconWidgetsData, numberWidgetsData } from 'demos/widgetPage';
 
-const WidgetPage = ({ className, ...restProps }) => {
-  const classes = classNames('WidgetPage', className);
-
+const WidgetPage = () => {
   return (
     <Page
-      className={classes}
+      className="WidgetPage"
       title="Widgets"
       breadcrumbs={[{ name: 'widgets', active: true }]}
     >

@@ -1,22 +1,3 @@
-// --purple: #6f42c1;
-// --pink: #e83e8c;
-// --red: #dc3545;
-// --orange: #fd7e14;
-// --yellow: #ffc107;
-// --green: #28a745;
-// --teal: #20c997;
-// --cyan: #17a2b8;
-// --white: #fff;
-// --gray: #868e96;
-// --gray-dark: #343a40;
-// --primary: #6a82fb;
-// --secondary: #fc5c7d;
-// --success: #45b649;
-// --info: #00c9ff;
-// --warning: #ffd700;
-// --danger: #f85032;
-// --light: #f8f9fa;
-
 export const NOTIFICATION_SYSTEM_STYLE = {
   NotificationItem: {
     DefaultStyle: {
@@ -105,37 +86,6 @@ export const NOTIFICATION_SYSTEM_STYLE = {
       top: 'unset',
       right: 'unset',
       lineHeight: 'inherit',
-      // right: '10px',
-      // top: '50%',
-      // marginTop: '-13px',
-      // lineHeight: '11px',
-      // width: '25px',
-      // height: '25px',
-      // outline: '0 !important',
-      // textAlign: 'center',
-      // padding: '6px 3px 3px 3px',
-      // fontWeight: '300',
-      // marginLeft: '65px',
-    },
-
-    success: {
-      // color: '#f0f5ea',
-      // backgroundColor: '#45b649'
-    },
-
-    error: {
-      // color: '#f4e9e9',
-      // backgroundColor: '#f85032'
-    },
-
-    warning: {
-      // color: '#f9f6f0',
-      // backgroundColor: '#ffd700'
-    },
-
-    info: {
-      // color: '#e8f0f4',
-      // backgroundColor: '#00c9ff'
     },
   },
 

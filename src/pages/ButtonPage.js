@@ -33,12 +33,9 @@ class ButtonPage extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
-    const classes = classNames('ButtonPage', className);
-
     return (
       <Page
-        className={classes}
+        className="ButtonPage"
         title="Buttons"
         breadcrumbs={[{ name: 'buttons', active: true }]}
       >

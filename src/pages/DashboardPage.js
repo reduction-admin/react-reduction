@@ -1,6 +1,5 @@
 import React from 'react';
 
-import classNames from 'classnames';
 import { getColor } from 'utils/colors';
 
 import {
@@ -63,14 +62,12 @@ class DashboardPage extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
-    const classes = classNames('DashboardPage', className);
     const primaryColor = getColor('primary');
     const secondaryColor = getColor('secondary');
 
     return (
       <Page
-        className={classes}
+        className="DashboardPage"
         title="Dashboard"
         breadcrumbs={[{ name: 'Dashboard', active: true }]}
       >
