@@ -17,3 +17,5 @@ You can check out [live preview](https://reduction-admin.firebaseapp.com/).
 ## Note
 
 React Reduction is built on top of [Create React App](https://github.com/facebook/create-react-app), which means all features that create-react-app supports are available.
+
+To enable basic Google Analytics page tracking, you can add "REACT_APP_GOOGLE_ANALYTICS" variable in .env(or create env.production) file. For example, `REACT_APP_GOOGLE_ANALYTICS=xxxxxx` like this.
