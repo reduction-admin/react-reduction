@@ -24,6 +24,7 @@ import {
   MdSettingsApplications,
   MdHelp,
   MdClearAll,
+  MdExitToApp,
 } from 'react-icons/lib/md';
 
 import Avatar from 'components/Avatar';
@@ -141,7 +142,7 @@ class Header extends React.Component {
                       <MdHelp /> Help
                     </ListGroupItem>
                     <ListGroupItem tag="button" action className="border-light">
-                      Signout
+                      <MdExitToApp /> Signout
                     </ListGroupItem>
                   </ListGroup>
                 </UserCard>
