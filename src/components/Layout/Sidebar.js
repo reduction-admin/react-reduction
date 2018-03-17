@@ -6,7 +6,6 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavbarBrand,
   NavLink as BSNavLink,
   // UncontrolledTooltip,
   Collapse,
@@ -33,6 +32,9 @@ import {
   MdSend,
   MdKeyboardArrowDown,
 } from 'react-icons/lib/md';
+import FaGithub from 'react-icons/lib/fa/github';
+
+import SourceLink from 'components/SourceLink';
 
 const sidebarBackground = {
   backgroundImage: 'url("/img/sidebar/sidebar-4.jpg")',
@@ -98,7 +100,7 @@ class Sidebar extends React.Component {
         <div className={bem.e('background')} style={sidebarBackground} />
         <div className={bem.e('content')}>
           <Navbar>
-            <NavbarBrand tag={NavLink} to="/" className="d-flex">
+            <SourceLink className="navbar-brand d-flex">
               <img
                 src="/img/logo/logo_200.png"
                 width="40"
@@ -106,8 +108,10 @@ class Sidebar extends React.Component {
                 className="pr-2"
                 alt=""
               />
-              <span className="text-white">Reduction</span>
-            </NavbarBrand>
+              <span className="text-white">
+                Reduction <FaGithub />
+              </span>
+            </SourceLink>
           </Navbar>
           <Nav vertical>
             {navItems.map(({ to, name, exact, Icon }, index) => (

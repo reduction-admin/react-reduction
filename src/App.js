@@ -73,8 +73,6 @@ class App extends React.Component {
 
   // close sidebar when
   handleContentClick = event => {
-    event.preventDefault();
-
     // close sidebar if sidebar is open and screen size is less than `md`
     if (
       App.isSidebarOpen() &&
