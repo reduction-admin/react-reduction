@@ -3,6 +3,8 @@ import PropTypes from 'utils/propTypes';
 
 import classNames from 'classnames';
 
+import withBadge from 'hocs/withBadge';
+
 const Avatar = ({
   rounded,
   circle,
@@ -42,4 +44,6 @@ Avatar.defaultProps = {
   style: {},
 };
 
-export default Avatar;
+export default withBadge({
+  position: 'top-right',
+})(Avatar);
