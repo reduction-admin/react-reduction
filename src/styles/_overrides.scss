@@ -18,3 +18,7 @@
 .card-header {
   text-transform: uppercase;
 }
+
+.badge:empty {
+  display: inline-block;
+}
