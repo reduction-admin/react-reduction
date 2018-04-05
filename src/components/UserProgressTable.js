@@ -5,6 +5,13 @@ import { Table, Progress } from 'reactstrap';
 
 import Avatar from 'components/Avatar';
 
+import withBadge from 'hocs/withBadge';
+
+const AvatarWithBadge = withBadge({
+  position: 'bottom-right',
+  color: 'success',
+})(Avatar);
+
 const UserProgressTable = ({ headers, usersData, ...restProps }) => {
   return (
     <Table responsive hover {...restProps}>
@@ -17,7 +24,7 @@ const UserProgressTable = ({ headers, usersData, ...restProps }) => {
         {usersData.map(({ avatar, name, date, progress }, index) => (
           <tr key={index}>
             <td className="align-middle text-center">
-              <Avatar src={avatar} />
+              <AvatarWithBadge src={avatar} />
             </td>
             <td className="align-middle text-center">{name}</td>
             <td className="align-middle text-center">{date}</td>

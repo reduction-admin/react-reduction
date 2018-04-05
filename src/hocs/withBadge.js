@@ -1,40 +1,46 @@
 import React from 'react';
 
+import classNames from 'classnames';
+
 import { Badge } from 'reactstrap';
 
 const positionMap = {
   'top-right': {
-    top: -5,
-    right: -5,
+    top: -3,
+    right: -3,
   },
   'top-left': {
-    top: -5,
-    left: -5,
+    top: -3,
+    left: -3,
   },
   'bottom-left': {
-    bottom: -5,
-    left: -5,
+    bottom: -3,
+    left: -3,
   },
   'bottom-right': {
-    bottom: -5,
-    right: -5,
+    bottom: -3,
+    right: -3,
   },
 };
 
 const withBadge = ({
   position = 'bottom-right',
+  style = {},
+  className,
   ...restBadgeProps
-}) => WrappedComponent => ({ tag: Tag = 'div', ...restProps }) => {
+} = {}) => WrappedComponent => ({ tag: Tag = 'div', ...restProps }) => {
   return (
-    <Tag className="position-relative">
+    <Tag className="d-inline-block position-relative">
       <WrappedComponent {...restProps} />
       <Badge
-        className="position-absolute"
+        className={classNames('position-absolute', className)}
         style={{
           ...positionMap[position],
-          width: 10,
-          height: 10,
+          width: 15,
+          height: 15,
           borderRadius: '50%',
+          border: '2px solid #fff',
+          ...style,
         }}
         {...restBadgeProps}
       />
