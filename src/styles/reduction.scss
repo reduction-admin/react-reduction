@@ -2,12 +2,12 @@
 
 // libraries
 @import "bootstrap/scss/bootstrap.scss";
-@import "animate.css/animate";
 @import "react-infinite-calendar/styles";
 
 // base
 @import "base";
 @import "overrides";
+@import "animations";
 @import "utils/utils";
 
 // components
