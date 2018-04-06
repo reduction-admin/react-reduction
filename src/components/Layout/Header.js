@@ -1,6 +1,7 @@
 import React from 'react';
 
 import bn from 'utils/bemnames';
+import classNames from 'classnames';
 
 import {
   Navbar,
@@ -39,6 +40,7 @@ const bem = bn.create('header');
 class Header extends React.Component {
   state = {
     isOpenNotificationPopover: false,
+    isNotificationConfirmed: false,
     isOpenUserCardPopover: false,
   };
 
@@ -46,6 +48,10 @@ class Header extends React.Component {
     this.setState({
       isOpenNotificationPopover: !this.state.isOpenNotificationPopover,
     });
+
+    if (!this.state.isNotificationConfirmed) {
+      this.setState({ isNotificationConfirmed: true });
+    }
   };
 
   toggleUserCardPopover = () => {
@@ -62,6 +68,8 @@ class Header extends React.Component {
   };
 
   render() {
+    const { isNotificationConfirmed } = this.state;
+
     return (
       <Navbar light expand className={bem.b('bg-white')}>
         <Nav navbar className="mr-2">
@@ -79,16 +87,18 @@ class Header extends React.Component {
               <MdNotificationsActive
                 id="Popover1"
                 size={25}
-                className="text-secondary animated swing infinite can-click"
+                className={classNames('text-secondary animated can-click', { 'swing infinite': !isNotificationConfirmed })}
                 onClick={this.toggleNotificationPopover}
               />
-              <Badge
-                color="primary"
-                className="rounded-circle position-absolute"
-                style={{ top: 5, right: 0 }}
-              >
-                <small>4</small>
-              </Badge>
+              {!isNotificationConfirmed && (
+                <Badge
+                  color="primary"
+                  className="rounded-circle position-absolute"
+                  style={{ top: 5, right: 0 }}
+                >
+                  <small>5</small>
+                </Badge>
+              )}
             </NavLink>
             <Popover
               placement="bottom"
