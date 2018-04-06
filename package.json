@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "animate.css": "^3.5.2",
     "bootstrap": "4.0.0",
     "chart.js": "^2.7.2",
     "classnames": "^2.2.5",
