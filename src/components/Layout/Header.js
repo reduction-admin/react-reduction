@@ -19,6 +19,7 @@ import {
 
 import {
   MdNotificationsActive,
+  MdNotificationsNone,
   MdInsertChart,
   MdPersonPin,
   MdMessage,
@@ -33,9 +34,24 @@ import { UserCard } from 'components/Card';
 import Notifications from 'components/Notifications';
 import SearchInput from 'components/SearchInput';
 
+import withBadge from 'hocs/withBadge';
+
 import { notificationsData } from 'demos/header';
 
 const bem = bn.create('header');
+
+const MdNotificationsActiveWithBadge = withBadge({
+  size: 'md',
+  color: 'primary',
+  style: {
+    top: -10,
+    right: -10,
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  children: <small>5</small>,
+})(MdNotificationsActive);
 
 class Header extends React.Component {
   state = {
@@ -83,29 +99,26 @@ class Header extends React.Component {
 
         <Nav navbar className={bem.e('nav-right')}>
           <NavItem className="d-inline-flex">
-            <NavLink className="position-relative">
-              <MdNotificationsActive
-                id="Popover1"
-                size={25}
-                className={classNames('text-secondary animated can-click', { 'swing infinite': !isNotificationConfirmed })}
-                onClick={this.toggleNotificationPopover}
-              />
-              {!isNotificationConfirmed && (
-                <Badge
-                  color="primary"
-                  className="rounded-circle position-absolute"
-                  style={{ top: 5, right: 0 }}
-                >
-                  <small>5</small>
-                </Badge>
+            <NavLink id="Popover1" className="position-relative">
+              {isNotificationConfirmed ? (
+                <MdNotificationsNone
+                  size={25}
+                  className="text-secondary can-click"
+                  onClick={this.toggleNotificationPopover}
+                />
+              ) : (
+                <MdNotificationsActiveWithBadge
+                  size={25}
+                  className="text-secondary can-click animated swing infinite"
+                  onClick={this.toggleNotificationPopover}
+                />
               )}
             </NavLink>
             <Popover
               placement="bottom"
               isOpen={this.state.isOpenNotificationPopover}
               toggle={this.toggleNotificationPopover}
-              target="Popover1"
-            >
+              target="Popover1">
               <PopoverBody>
                 <Notifications notificationsData={notificationsData} />
               </PopoverBody>
@@ -113,9 +126,8 @@ class Header extends React.Component {
           </NavItem>
 
           <NavItem>
-            <NavLink>
+            <NavLink id="Popover2">
               <Avatar
-                id="Popover2"
                 onClick={this.toggleUserCardPopover}
                 className="can-click"
               />
@@ -126,15 +138,13 @@ class Header extends React.Component {
               toggle={this.toggleUserCardPopover}
               target="Popover2"
               className="p-0 border-0"
-              style={{ minWidth: 250 }}
-            >
+              style={{ minWidth: 250 }}>
               <PopoverBody className="p-0 border-light">
                 <UserCard
                   title="Jane"
                   subtitle="jane@jane.com"
                   text="Last updated 3 mins ago"
-                  className="border-light"
-                >
+                  className="border-light">
                   <ListGroup flush>
                     <ListGroupItem tag="button" action className="border-light">
                       <MdPersonPin /> Profile

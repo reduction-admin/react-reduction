@@ -23,8 +23,32 @@ const positionMap = {
   },
 };
 
+const sizeMap = {
+  xs: {
+    width: 10,
+    height: 10,
+  },
+  sm: {
+    width: 15,
+    height: 15,
+  },
+  md: {
+    width: 20,
+    height: 20,
+  },
+  lg: {
+    width: 25,
+    height: 25,
+  },
+  xl: {
+    width: 30,
+    height: 30,
+  },
+};
+
 const withBadge = ({
   position = 'bottom-right',
+  size = 'sm',
   style = {},
   className,
   ...restBadgeProps
@@ -36,8 +60,7 @@ const withBadge = ({
         className={classNames('position-absolute', className)}
         style={{
           ...positionMap[position],
-          width: 15,
-          height: 15,
+          ...sizeMap[size],
           borderRadius: '50%',
           border: '2px solid #fff',
           ...style,
