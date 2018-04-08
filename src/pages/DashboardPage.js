@@ -21,6 +21,10 @@ import {
   MdPieChart,
   MdShowChart,
   MdPersonPin,
+  MdThumbUp,
+  MdShare,
+  MdRateReview,
+  MdSupervisorAccount,
 } from 'react-icons/lib/md';
 
 import InfiniteCalendar from 'react-infinite-calendar';
@@ -44,9 +48,10 @@ import UserProgressTable from 'components/UserProgressTable';
 
 import { AnnouncementCard, TodosCard } from 'components/Card';
 
-import { NumberWidget } from 'components/Widget';
+import { NumberWidget, IconWidget } from 'components/Widget';
 
 import MapWithBubbles from 'components/MapWithBubbles';
+import HorizontalAvatarList from 'components/HorizontalAvatarList';
 
 const today = new Date();
 const lastWeek = new Date(
@@ -69,8 +74,7 @@ class DashboardPage extends React.Component {
       <Page
         className="DashboardPage"
         title="Dashboard"
-        breadcrumbs={[{ name: 'Dashboard', active: true }]}
-      >
+        breadcrumbs={[{ name: 'Dashboard', active: true }]}>
         <Row>
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
@@ -225,8 +229,7 @@ class DashboardPage extends React.Component {
               />
               <CardBody
                 className="text-primary"
-                style={{ position: 'absolute' }}
-              >
+                style={{ position: 'absolute' }}>
                 <CardTitle>
                   <MdInsertChart /> Sales
                 </CardTitle>
@@ -253,8 +256,7 @@ class DashboardPage extends React.Component {
               />
               <CardBody
                 className="text-primary"
-                style={{ position: 'absolute' }}
-              >
+                style={{ position: 'absolute' }}>
                 <CardTitle>
                   <MdInsertChart /> Revenue
                 </CardTitle>
@@ -280,13 +282,53 @@ class DashboardPage extends React.Component {
               />
               <CardBody
                 className="text-primary"
-                style={{ position: 'absolute', right: 0 }}
-              >
+                style={{ position: 'absolute', right: 0 }}>
                 <CardTitle>
                   <MdInsertChart /> Profit
                 </CardTitle>
               </CardBody>
             </Card>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col lg={3} md={6} sm={6} xs={12}>
+            <IconWidget
+              bgColor="light"
+              inverse={false}
+              icon={MdSupervisorAccount}
+              subtitle={
+                <HorizontalAvatarList avatars={userProgressTableData} />
+              }
+            />
+          </Col>
+
+          <Col lg={3} md={6} sm={6} xs={12}>
+            <IconWidget
+              bgColor="light"
+              inverse={false}
+              icon={MdRateReview}
+              title="10+ Reviews"
+              subtitle="New Reviews"
+            />
+          </Col>
+
+          <Col lg={3} md={6} sm={6} xs={12}>
+            <IconWidget
+              bgColor="primary"
+              icon={MdThumbUp}
+              title="50+ Likes"
+              subtitle="People you like"
+            />
+          </Col>
+
+          <Col lg={3} md={6} sm={6} xs={12}>
+            <IconWidget
+              bgColor="secondary"
+              icon={MdShare}
+              title="30+ Shares"
+              subtitle="New Shares"
+            />
           </Col>
         </Row>
 
