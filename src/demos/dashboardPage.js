@@ -52,7 +52,7 @@ export const userProgressTableData = [
   },
   {
     avatar: '/img/users/100_2.jpg',
-    name: 'Jamy',
+    name: 'Jenny',
     date: '1 year ago',
     progress: 60,
   },
@@ -64,19 +64,19 @@ export const userProgressTableData = [
   },
   {
     avatar: '/img/users/100_4.jpg',
-    name: 'Jamy',
+    name: 'Christine',
     date: 'a month ago',
     progress: 40,
   },
   {
     avatar: '/img/users/100_5.jpg',
-    name: 'Jamy',
+    name: 'Bread',
     date: '6 months ago',
     progress: 30,
   },
   {
     avatar: '/img/users/100_6.jpg',
-    name: 'Jamy',
+    name: 'Dan',
     date: '2 years ago',
     progress: 25,
   },
