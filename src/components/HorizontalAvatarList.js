@@ -5,30 +5,44 @@ import { UncontrolledTooltip } from 'reactstrap';
 
 import Avatar from 'components/Avatar';
 
-const HorizontalAvatarList = ({ tag: Tag, avatars, ...restProps }) => {
+const HorizontalAvatarList = ({
+  tag: Tag,
+  avatars,
+  reversed,
+  ...restProps
+}) => {
+  let leng = reversed ? avatars.length + 1 : 1;
+  const count = reversed ? () => leng-- : () => leng++;
+
   return (
     <Tag className="d-flex align-items-center">
       {avatars &&
-        avatars.map(({ avatar, name }, index) => (
-          <Fragment>
-            <Avatar
-              id={`HorizontalAvatarList-avatar-${index}`}
-              key={index}
-              src={avatar}
-              style={{
-                zIndex: index,
-                border: '2px solid #fff',
-                marginLeft: -15,
-              }}
-            />
+        avatars.map(({ avatar, name }) => {
+          const index = count();
 
-            <UncontrolledTooltip
-              delay={{ show: 0, hide: 0 }}
-              target={`HorizontalAvatarList-avatar-${index}`}>
-              {name}
-            </UncontrolledTooltip>
-          </Fragment>
-        ))}
+          return (
+            <Fragment>
+              <Avatar
+                id={`HorizontalAvatarList-avatar-${index}`}
+                key={index}
+                src={avatar}
+                style={{
+                  zIndex: index,
+                  border: '2px solid #fff',
+                  marginLeft: -15,
+                }}
+              />
+
+              {!!name && (
+                <UncontrolledTooltip
+                  delay={{ show: 0, hide: 0 }}
+                  target={`HorizontalAvatarList-avatar-${index}`}>
+                  {name}
+                </UncontrolledTooltip>
+              )}
+            </Fragment>
+          );
+        })}
     </Tag>
   );
 };
@@ -41,11 +55,13 @@ HorizontalAvatarList.propTypes = {
       name: PropTypes.string,
     })
   ).isRequired,
+  reversed: PropTypes.bool,
 };
 
 HorizontalAvatarList.defaultProps = {
   tag: 'div',
   avatars: [],
+  reversed: false,
 };
 
 export default HorizontalAvatarList;
