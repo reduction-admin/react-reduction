@@ -21,10 +21,10 @@ import {
   MdPieChart,
   MdShowChart,
   MdPersonPin,
-  MdThumbUp,
-  MdShare,
   MdRateReview,
   MdSupervisorAccount,
+  MdThumbUp,
+  MdShare,
 } from 'react-icons/lib/md';
 
 import InfiniteCalendar from 'react-infinite-calendar';
@@ -35,6 +35,7 @@ import {
   supportTicketsData,
   productsData,
   userProgressTableData,
+  avatarsData,
   todosData,
   chartjs,
 } from 'demos/dashboardPage';
@@ -292,18 +293,13 @@ class DashboardPage extends React.Component {
         </Row>
 
         <Row>
-          <Col lg={3} md={6} sm={6} xs={12}>
-            <IconWidget
-              bgColor="light"
-              inverse={false}
-              icon={MdSupervisorAccount}
-              subtitle={
-                <HorizontalAvatarList avatars={userProgressTableData} />
-              }
-            />
+          <Col xl={3} lg={6} md={6} sm={6} xs={12}>
+            <Card body style={{ overflowX: 'auto' }}>
+              <HorizontalAvatarList avatars={avatarsData} />
+            </Card>
           </Col>
 
-          <Col lg={3} md={6} sm={6} xs={12}>
+          <Col xl={3} lg={6} md={6} sm={6} xs={12}>
             <IconWidget
               bgColor="light"
               inverse={false}
@@ -313,7 +309,7 @@ class DashboardPage extends React.Component {
             />
           </Col>
 
-          <Col lg={3} md={6} sm={6} xs={12}>
+          <Col xl={3} lg={6} md={6} sm={6} xs={12}>
             <IconWidget
               bgColor="primary"
               icon={MdThumbUp}
@@ -322,7 +318,7 @@ class DashboardPage extends React.Component {
             />
           </Col>
 
-          <Col lg={3} md={6} sm={6} xs={12}>
+          <Col xl={3} lg={6} md={6} sm={6} xs={12}>
             <IconWidget
               bgColor="secondary"
               icon={MdShare}

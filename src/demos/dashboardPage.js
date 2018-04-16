@@ -43,6 +43,79 @@ export const productsData = [
   },
 ];
 
+export const avatarsData = [
+  {
+    avatar: '/img/users/100_1.jpg',
+    name: 'Tom',
+    date: '3 month ago',
+  },
+  {
+    avatar: '/img/users/100_2.jpg',
+    name: 'Jenny',
+    date: '1 year ago',
+  },
+  {
+    avatar: '/img/users/100_3.jpg',
+    name: 'Sim',
+    date: '2 hour ago',
+  },
+  {
+    avatar: '/img/users/100_4.jpg',
+    name: 'Christine',
+    date: 'a month ago',
+  },
+  {
+    avatar: '/img/users/100_5.jpg',
+    name: 'Bread',
+    date: '6 months ago',
+  },
+  {
+    avatar: '/img/users/100_6.jpg',
+    name: 'Dan',
+    date: '2 years ago',
+  },
+  {
+    avatar: '/img/users/100_7.jpg',
+    name: 'Merry',
+    date: '3 month ago',
+  },
+  {
+    avatar: '/img/users/100_8.jpg',
+    name: 'John',
+    date: '1 month ago',
+  },
+  {
+    avatar: '/img/users/100_9.jpg',
+    name: 'Shane',
+    date: '7 month ago',
+  },
+  {
+    avatar: '/img/users/100_10.jpg',
+    name: 'Star',
+    date: '1 year ago',
+  },
+  {
+    avatar: '/img/users/100_11.jpg',
+    name: 'Jenny',
+    date: '3 month ago',
+  },
+  {
+    avatar: '/img/users/100_12.jpg',
+    name: 'Park',
+    date: '4 month ago',
+  },
+  {
+    avatar: '/img/users/100_13.jpg',
+    name: 'Dave',
+    date: '9 month ago',
+  },
+  {
+    avatar: '/img/users/100_14.jpg',
+    name: 'Jackson',
+    date: '10 month ago',
+  },
+];
+
 export const userProgressTableData = [
   {
     avatar: '/img/users/100_1.jpg',
