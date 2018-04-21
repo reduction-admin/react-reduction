@@ -29,6 +29,38 @@ const CardPage = () => {
     <Page title="Cards" breadcrumbs={[{ name: 'cards', active: true }]}>
       <Row>
         <Col md={6} sm={6} xs={12} className="mb-3">
+          <Card className="flex-row">
+            <CardImg
+              className="card-img-left"
+              src="/img/bg/background_640-1.jpg"
+              style={{ width: 'auto', height: 150 }}
+            />
+            <CardBody>
+              <CardTitle>Horizontal Image Card(Left)</CardTitle>
+              <CardText>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </CardText>
+            </CardBody>
+          </Card>
+        </Col>
+
+        <Col md={6} sm={6} xs={12} className="mb-3">
+          <Card className="flex-row">
+            <CardBody>
+              <CardTitle>Horizontal Image Card(Right)</CardTitle>
+              <CardText>Some quick example card</CardText>
+            </CardBody>
+            <CardImg
+              className="card-img-right"
+              src="/img/bg/background_640-3.jpg"
+              style={{ width: 'auto', height: 150 }}
+            />
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6} sm={6} xs={12} className="mb-3">
           <Card>
             <CardImg top src="/img/bg/background_1920-11.jpg" />
             <CardBody>
@@ -72,13 +104,12 @@ const CardPage = () => {
           <Col md={6} sm={6} xs={12} className="mb-3">
             <Card
               inverse
-              className={`border-0 bg-gradient-theme${!!color ? '-' : ''}${
-                color
-                }`}
+              className={`border-0 bg-gradient-theme${
+                !!color ? '-' : ''
+              }${color}`}
               style={{
                 height: 200,
-              }}
-            >
+              }}>
               <CardBody className="d-flex flex-column justify-content-start align-items-start">
                 <CardTitle>Card title</CardTitle>
                 <CardText>card text</CardText>
@@ -177,8 +208,7 @@ const CardPage = () => {
             <Card
               inverse
               className={`bg-gradient-${color} text-center`}
-              style={{ height: 200 }}
-            >
+              style={{ height: 200 }}>
               <CardBody className="d-flex flex-column flex-wrap justify-content-center align-items-center">
                 <CardTitle>Gradient {color} title</CardTitle>
                 <CardText>card text</CardText>
