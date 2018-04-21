@@ -1,7 +1,6 @@
 import React from 'react';
 
 import bn from 'utils/bemnames';
-import classNames from 'classnames';
 
 import {
   Navbar,
@@ -11,7 +10,6 @@ import {
   NavLink,
   Popover,
   PopoverBody,
-  Badge,
   ListGroup,
   ListGroupItem,
   Button,

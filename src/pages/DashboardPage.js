@@ -24,7 +24,6 @@ import {
   MdShowChart,
   MdPersonPin,
   MdRateReview,
-  MdSupervisorAccount,
   MdThumbUp,
   MdShare,
 } from 'react-icons/lib/md';
