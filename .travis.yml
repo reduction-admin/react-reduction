@@ -9,11 +9,11 @@ node_js:
 
 cache:
   firebase: true
+  yarn: true
   directories:
   - node_modules
 
-install:
-  #install firebase tools, required to deploy on firebase hosting
+before_script:
   - npm install -g firebase-tools
 
 script:
