@@ -110,7 +110,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.REACT_APP_GITHUB_PAGE_BASE}>
         <GAListener>
           <main className="cr-app bg-light">
             <Sidebar />
