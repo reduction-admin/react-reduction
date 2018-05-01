@@ -11,6 +11,8 @@ import { scaleLinear } from 'd3-scale';
 
 import { getColor } from 'utils/colors';
 
+import world50m from 'assets/geo-data/world-50m.json';
+
 const cityScale = scaleLinear()
   .domain([0, 37843000])
   .range([1, 25]);
@@ -21,18 +23,12 @@ class BubbleMap extends Component {
   };
 
   async componentDidMount() {
-    const cities = await this.fetchCitiesData();
+    const cities = await import('assets/geo-data/world-most-populous-cities.json');
 
     this.setState({
       cities,
     });
   }
-
-  fetchCitiesData = async () => {
-    const result = await fetch('/geo-data/world-most-populous-cities.json');
-
-    return result.json();
-  };
 
   render() {
     // const primaryColor = getColor('primary');
@@ -47,10 +43,9 @@ class BubbleMap extends Component {
         style={{
           width: '100%',
           height: 'auto',
-        }}
-      >
+        }}>
         <ZoomableGroup center={[0, 20]} disablePanning>
-          <Geographies geography="/geo-data/world-50m.json">
+          <Geographies geography={world50m}>
             {(geographies, projection) =>
               geographies.map(
                 (geography, i) =>

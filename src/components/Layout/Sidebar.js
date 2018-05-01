@@ -36,8 +36,11 @@ import FaGithub from 'react-icons/lib/fa/github';
 
 import SourceLink from 'components/SourceLink';
 
+import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
+import logo200Image from 'assets/img/logo/logo_200.png';
+
 const sidebarBackground = {
-  backgroundImage: 'url("/img/sidebar/sidebar-4.jpg")',
+  backgroundImage: `url("${sidebarBgImage}")`,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
 };
@@ -96,13 +99,13 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <aside className={bem.b()} data-image="/img/sidebar/sidebar-4.jpg">
+      <aside className={bem.b()} data-image={sidebarBgImage}>
         <div className={bem.e('background')} style={sidebarBackground} />
         <div className={bem.e('content')}>
           <Navbar>
             <SourceLink className="navbar-brand d-flex">
               <img
-                src="/img/logo/logo_200.png"
+                src={logo200Image}
                 width="40"
                 height="30"
                 className="pr-2"
@@ -122,8 +125,7 @@ class Sidebar extends React.Component {
                   tag={NavLink}
                   to={to}
                   activeClassName="active"
-                  exact={exact}
-                >
+                  exact={exact}>
                   <Icon className={bem.e('nav-item-icon')} size="1.5rem" />
                   <span className="">{name}</span>
                 </BSNavLink>
@@ -132,8 +134,7 @@ class Sidebar extends React.Component {
 
             <NavItem
               className={bem.e('nav-item')}
-              onClick={this.handleClick('Components')}
-            >
+              onClick={this.handleClick('Components')}>
               <BSNavLink className={bem.e('nav-item-collapse')}>
                 <div className="d-flex">
                   <MdExtension
@@ -165,8 +166,7 @@ class Sidebar extends React.Component {
                     tag={NavLink}
                     to={to}
                     activeClassName="active"
-                    exact={exact}
-                  >
+                    exact={exact}>
                     <Icon className={bem.e('nav-item-icon')} size="1.5rem" />
                     <span className="">{name}</span>
                   </BSNavLink>
@@ -176,8 +176,7 @@ class Sidebar extends React.Component {
 
             <NavItem
               className={bem.e('nav-item')}
-              onClick={this.handleClick('Contents')}
-            >
+              onClick={this.handleClick('Contents')}>
               <BSNavLink className={bem.e('nav-item-collapse')}>
                 <div className="d-flex">
                   <MdSend className={bem.e('nav-item-icon')} size="1.5rem" />
@@ -206,8 +205,7 @@ class Sidebar extends React.Component {
                     tag={NavLink}
                     to={to}
                     activeClassName="active"
-                    exact={exact}
-                  >
+                    exact={exact}>
                     <Icon className={bem.e('nav-item-icon')} size="1.5rem" />
                     <span className="">{name}</span>
                   </BSNavLink>
