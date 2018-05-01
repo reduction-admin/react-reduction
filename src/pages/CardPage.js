@@ -24,6 +24,12 @@ import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
 import Page from 'components/Page';
 import { UserCard } from 'components/Card';
 
+import bg1Image from 'assets/img/bg/background_640-1.jpg';
+import bg3Image from 'assets/img/bg/background_640-3.jpg';
+import bg11Image from 'assets/img/bg/background_1920-11.jpg';
+import bg18Image from 'assets/img/bg/background_1920-18.jpg';
+import user1Image from 'assets/img/users/100_1.jpg';
+
 const CardPage = () => {
   return (
     <Page title="Cards" breadcrumbs={[{ name: 'cards', active: true }]}>
@@ -32,7 +38,7 @@ const CardPage = () => {
           <Card className="flex-row">
             <CardImg
               className="card-img-left"
-              src="/img/bg/background_640-1.jpg"
+              src={bg1Image}
               style={{ width: 'auto', height: 150 }}
             />
             <CardBody>
@@ -53,7 +59,7 @@ const CardPage = () => {
             </CardBody>
             <CardImg
               className="card-img-right"
-              src="/img/bg/background_640-3.jpg"
+              src={bg3Image}
               style={{ width: 'auto', height: 150 }}
             />
           </Card>
@@ -62,7 +68,7 @@ const CardPage = () => {
       <Row>
         <Col md={6} sm={6} xs={12} className="mb-3">
           <Card>
-            <CardImg top src="/img/bg/background_1920-11.jpg" />
+            <CardImg top src={bg11Image} />
             <CardBody>
               <CardTitle>Card with image</CardTitle>
               <CardText>
@@ -75,7 +81,7 @@ const CardPage = () => {
 
         <Col md={6} sm={6} xs={12} className="mb-3">
           <Card>
-            <CardImg top src="/img/bg/background_1920-18.jpg" />
+            <CardImg top src={bg18Image} />
             <CardBody>
               <CardTitle>Card with list group</CardTitle>
               <CardText>
@@ -150,7 +156,7 @@ const CardPage = () => {
       <Row>
         <Col md={5}>
           <UserCard
-            avatar="/img/users/100_1.jpg"
+            avatar={user1Image}
             title="Chris"
             subtitle="Project Lead"
             text="Give me a star!"

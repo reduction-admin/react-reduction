@@ -4,24 +4,19 @@ node_js:
   - "stable"
 
 cache:
-  firebase: true
   yarn: true
   directories:
   - node_modules
-
-before_script:
-  - npm install -g firebase-tools
 
 script:
   - npm run build
 
 after_success:
-  - firebase deploy
+  - npm run deploy
 
 deploy:
-  provider: firebase
-  token:
-    secure: "DloHcpNtzx4p6RsMsP0G3IReLqJuW8oJ7QL3zXh2UfVnDagEzxA3UnWq7h2yk9K6ESuHDxfvpC7b9lVE7fx020ZO+/KSx4OOWXiD22lV8pbFcJy0/cbwP9XuqF5M2lAcryZwV7ANXA7UcI+9LXP0CRR3xCH2pqD/ceZtuShlHZ696yYjCQH50x5UyUQUHOa149mWvpkwuaPc6zR7T8G1F/k3QE6Ih6yILrt3srAURwEOAFk34PdGVHmVrAJrUSo4aurHsrGQrR48vDzorRGcw9S0kR4l7z6ojwSabmhVImSHLDX7eRUC7pRFw0fyTAeIAlgftimDM8CrNMAHIPuv6V60wbrA4pHgEuYz1fCxeHIMUXS8SCdnKNn+O5tIk3mnQirOfru1nYazE8IWyw9V4rydBMZfZfAuTvCmtdh3CH9jct5Ye5/pcOuhkzHtx39t5GlA0ogGC49UwGaFX4ECFzpiu3Pk2RPRVUGrjmaYFJ+cSHYLVbGNVNmqM3ODWkBfoLwHOiurlFjz+Ve9xGdu+c7QOKf2O8iglvCKpAI7DlQW9lhC9UodbGCT363dQXhfKfznlpGHKcpFva3akcLmQcnUWqbMFPu5WGKdFtZkJKznjspje8bKTbfKjPYJtE7cQtVlzdF+9YJ+cpstOeL+M6iSE8LfA/VQgo4yHHM0M2A="
+  provider: pages
   skip_cleanup: true
+  github-token: $GITHUB_TOKEN
   on:
     branch: master
