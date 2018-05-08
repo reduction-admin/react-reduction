@@ -1,0 +1,157 @@
+.cr-sidebar {
+  // @include media-breakpoint-down(md) {
+  //   display: none;
+  // }
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -$cr-sidebar-width;
+  z-index: 5;
+  width: $cr-sidebar-width;
+  font-weight: 200;
+  color: #fff;
+  background-position: center center;
+  background-size: cover;
+  transition: left .1s ease-in;
+
+  + .cr-content {
+    transition: margin .1s ease-in;
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+
+  &::before {
+    background: #000;
+    opacity: .33;
+  }
+
+  &::after {
+    z-index: 3;
+    // sublime light
+    background: #fc5c7d; /* fallback for old browsers */
+    background: linear-gradient(to bottom, #6a82fb, #fc5c7d);
+    opacity: 1;
+  }
+
+  &[data-image]:after {
+    opacity: .77;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 4;
+    height: calc(100vh - 20px);
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  &__nav-item-collapse {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  &__nav-item-icon {
+    // @include media-breakpoint-down(md) {
+    //   padding: 0;
+    //   margin: 0 auto;
+    // }
+    padding-right: .5rem;
+  }
+
+  &--open {
+    left: 0;
+    transition: left .2s ease-in;
+
+    + .cr-content {
+      margin: 0 0 0 $cr-sidebar-width;
+      transition: margin .2s ease-in;
+    }
+  }
+
+  .nav {
+    margin-top: 20px;
+
+    .nav-item {
+      margin: 5px 10px;
+      color: theme-color(light);
+      border-radius: 4px;
+      opacity: .86;
+    }
+
+    .nav-link {
+      // @include media-breakpoint-down(md) {
+      //   padding: .5rem;
+      // }
+      color: theme-color(light);
+
+      &:hover {
+        background: rgba(theme-color(light), .15);
+      }
+    }
+  }
+}
+
+// @include gradient-y(#02aab0, #00cdac); // green beach
+// @include gradient-y(#348f50, #56b4d3); // emerald water
+// @include gradient-y(#4CB8C4, #3CD3AD); // sea weed
+
+// stripe
+// background: #1fa2ff; /* fallback for old browsers */
+// background: linear-gradient(
+//   to bottom,
+//   #1fa2ff,
+//   #12d8fa,
+//   #a6ffcb
+// );
+
+// subu
+// background: #0cebeb; /* fallback for old browsers */
+// background: -webkit-linear-gradient(
+//   to bottom,
+//   #29ffc6,
+//   #20e3b2,
+//   #0cebeb
+// ); /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(
+//   to bottom,
+//   #29ffc6,
+//   #20e3b2,
+//   #0cebeb
+// ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+// mojito
+// background: #1d976c; /* fallback for old browsers */
+// background: -webkit-linear-gradient(
+//   to bottom,
+//   #93f9b9,
+//   #1d976c
+// ); /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(
+//   to bottom,
+//   #93f9b9,
+//   #1d976c
+// ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

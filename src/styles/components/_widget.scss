@@ -1,0 +1,10 @@
+.cr-widget {
+  display: flex;
+  flex-direction: row;
+
+  &__icon {
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+}
