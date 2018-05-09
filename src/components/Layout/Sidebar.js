@@ -126,7 +126,7 @@ class Sidebar extends React.Component {
                   to={to}
                   activeClassName="active"
                   exact={exact}>
-                  <Icon className={bem.e('nav-item-icon')} size="1.5rem" />
+                  <Icon className={bem.e('nav-item-icon')} />
                   <span className="">{name}</span>
                 </BSNavLink>
               </NavItem>
@@ -137,15 +137,11 @@ class Sidebar extends React.Component {
               onClick={this.handleClick('Components')}>
               <BSNavLink className={bem.e('nav-item-collapse')}>
                 <div className="d-flex">
-                  <MdExtension
-                    className={bem.e('nav-item-icon')}
-                    size="1.5rem"
-                  />
+                  <MdExtension className={bem.e('nav-item-icon')} />
                   <span className=" align-self-start">Components</span>
                 </div>
                 <MdKeyboardArrowDown
                   className={bem.e('nav-item-icon')}
-                  size="1rem"
                   style={{
                     padding: 0,
                     transform: this.state.isOpenComponents
@@ -167,7 +163,7 @@ class Sidebar extends React.Component {
                     to={to}
                     activeClassName="active"
                     exact={exact}>
-                    <Icon className={bem.e('nav-item-icon')} size="1.5rem" />
+                    <Icon className={bem.e('nav-item-icon')} />
                     <span className="">{name}</span>
                   </BSNavLink>
                 </NavItem>
@@ -179,12 +175,11 @@ class Sidebar extends React.Component {
               onClick={this.handleClick('Contents')}>
               <BSNavLink className={bem.e('nav-item-collapse')}>
                 <div className="d-flex">
-                  <MdSend className={bem.e('nav-item-icon')} size="1.5rem" />
+                  <MdSend className={bem.e('nav-item-icon')} />
                   <span className="">Contents</span>
                 </div>
                 <MdKeyboardArrowDown
                   className={bem.e('nav-item-icon')}
-                  size="1rem"
                   style={{
                     padding: 0,
                     transform: this.state.isOpenContents
@@ -206,7 +201,7 @@ class Sidebar extends React.Component {
                     to={to}
                     activeClassName="active"
                     exact={exact}>
-                    <Icon className={bem.e('nav-item-icon')} size="1.5rem" />
+                    <Icon className={bem.e('nav-item-icon')} />
                     <span className="">{name}</span>
                   </BSNavLink>
                 </NavItem>
