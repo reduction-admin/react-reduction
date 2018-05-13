@@ -1,20 +1,17 @@
+import Page from 'components/Page';
 import React from 'react';
-
 import {
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
   Button,
-  DropdownToggle,
-  DropdownMenu,
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
   DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Row,
   UncontrolledButtonDropdown,
 } from 'reactstrap';
-
-import Page from 'components/Page';
-
 import { getThemeColors } from 'utils/colors';
 
 const colors = getThemeColors();
@@ -27,13 +24,12 @@ const DropdownPage = () => {
           <Card>
             <CardHeader>Single button dropdowns</CardHeader>
             <CardBody>
-              {colors.map(color => (
-                <UncontrolledButtonDropdown>
+              {colors.map((color, index) => (
+                <UncontrolledButtonDropdown key={index}>
                   <DropdownToggle
                     caret
                     color={color}
-                    className="text-capitalize m-1"
-                  >
+                    className="text-capitalize m-1">
                     {color}
                   </DropdownToggle>
                   <DropdownMenu>
@@ -53,8 +49,10 @@ const DropdownPage = () => {
           <Card>
             <CardHeader>Split button dropdowns</CardHeader>
             <CardBody>
-              {colors.map(color => (
-                <UncontrolledButtonDropdown className="text-capitalize m-1">
+              {colors.map((color, index) => (
+                <UncontrolledButtonDropdown
+                  key={index}
+                  className="text-capitalize m-1">
                   <Button color={color}>{color}</Button>
                   <DropdownToggle caret color={color} />
                   <DropdownMenu>
@@ -111,7 +109,7 @@ const DropdownPage = () => {
           <Card>
             <CardHeader>Dropup</CardHeader>
             <CardBody>
-              <UncontrolledButtonDropdown dropup>
+              <UncontrolledButtonDropdown direction="up">
                 <DropdownToggle caret size="lg">
                   Dropup
                 </DropdownToggle>

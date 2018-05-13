@@ -1,22 +1,8 @@
-import React from 'react';
-
-import {
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
-  CardText,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap';
-
 import Page from 'components/Page';
+import React from 'react';
+import { Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardHeader, CardText, Col, DropdownItem, DropdownMenu, DropdownToggle, Row, UncontrolledButtonDropdown } from 'reactstrap';
+
+
 
 const ButtonGroupPage = () => {
   return (
@@ -76,13 +62,13 @@ const ButtonGroupPage = () => {
               <ButtonGroup>
                 <Button>1</Button>
                 <Button>2</Button>
-                <ButtonDropdown>
+                <UncontrolledButtonDropdown>
                   <DropdownToggle caret>Dropdown</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem>Dropdown Link</DropdownItem>
                     <DropdownItem>Dropdown Link</DropdownItem>
                   </DropdownMenu>
-                </ButtonDropdown>
+                </UncontrolledButtonDropdown>
               </ButtonGroup>
             </CardBody>
           </Card>
@@ -95,13 +81,13 @@ const ButtonGroupPage = () => {
               <ButtonGroup vertical>
                 <Button>1</Button>
                 <Button>2</Button>
-                <ButtonDropdown>
+                <UncontrolledButtonDropdown>
                   <DropdownToggle caret>Dropdown</DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem>Dropdown Link</DropdownItem>
                     <DropdownItem>Dropdown Link</DropdownItem>
                   </DropdownMenu>
-                </ButtonDropdown>
+                </UncontrolledButtonDropdown>
               </ButtonGroup>
             </CardBody>
           </Card>

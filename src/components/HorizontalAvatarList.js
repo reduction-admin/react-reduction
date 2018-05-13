@@ -1,9 +1,7 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'utils/propTypes';
-
-import { UncontrolledTooltip } from 'reactstrap';
-
 import Avatar from 'components/Avatar';
+import React, { Fragment } from 'react';
+import { UncontrolledTooltip } from 'reactstrap';
+import PropTypes from 'utils/propTypes';
 
 const HorizontalAvatarList = ({
   tag: Tag,
@@ -23,11 +21,10 @@ const HorizontalAvatarList = ({
           const isFirstItem = i === 0;
 
           return (
-            <Fragment>
+            <Fragment key={index}>
               <Avatar
                 {...avatarProps}
                 id={`HorizontalAvatarList-avatar-${index}`}
-                key={index}
                 src={avatar}
                 style={{
                   zIndex: index,

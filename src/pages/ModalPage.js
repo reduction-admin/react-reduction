@@ -1,20 +1,18 @@
+import Page from 'components/Page';
 import React from 'react';
-
 import {
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
   Button,
   ButtonGroup,
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
   Modal,
-  ModalHeader,
   ModalBody,
   ModalFooter,
+  ModalHeader,
+  Row,
 } from 'reactstrap';
-
-import Page from 'components/Page';
 
 class ModalPage extends React.Component {
   state = {
@@ -49,8 +47,7 @@ class ModalPage extends React.Component {
                 <Modal
                   isOpen={this.state.modal}
                   toggle={this.toggle()}
-                  className={this.props.className}
-                >
+                  className={this.props.className}>
                   <ModalHeader toggle={this.toggle()}>Modal title</ModalHeader>
                   <ModalBody>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -83,22 +80,19 @@ class ModalPage extends React.Component {
                   <Button
                     onClick={() => this.setState({ backdrop: true })}
                     color="primary"
-                    active={this.state.backdrop}
-                  >
+                    active={this.state.backdrop}>
                     true
                   </Button>
                   <Button
                     onClick={() => this.setState({ backdrop: false })}
                     color="primary"
-                    active={!this.state.backdrop}
-                  >
+                    active={!this.state.backdrop}>
                     false
                   </Button>
                   <Button
                     onClick={() => this.setState({ backdrop: 'static' })}
                     color="primary"
-                    active={this.state.backdrop === 'static'}
-                  >
+                    active={this.state.backdrop === 'static'}>
                     static
                   </Button>
                 </ButtonGroup>
@@ -109,8 +103,7 @@ class ModalPage extends React.Component {
                 <Modal
                   isOpen={this.state.modal_backdrop}
                   toggle={this.toggle('backdrop')}
-                  backdrop={this.state.backdrop}
-                >
+                  backdrop={this.state.backdrop}>
                   <ModalHeader toggle={this.toggle('backdrop')}>
                     Modal title
                   </ModalHeader>
@@ -147,8 +140,7 @@ class ModalPage extends React.Component {
                 <Modal
                   isOpen={this.state.modal_nested_parent}
                   toggle={this.toggle('nested_parent')}
-                  className={this.props.className}
-                >
+                  className={this.props.className}>
                   <ModalHeader toggle={this.toggle('nested_parent')}>
                     Modal title
                   </ModalHeader>
@@ -167,8 +159,7 @@ class ModalPage extends React.Component {
                     </Button>
                     <Modal
                       isOpen={this.state.modal_nested}
-                      toggle={this.toggle('nested')}
-                    >
+                      toggle={this.toggle('nested')}>
                       <ModalHeader>Nested Modal title</ModalHeader>
                       <ModalBody>Stuff and things</ModalBody>
                       <ModalFooter>
@@ -177,8 +168,7 @@ class ModalPage extends React.Component {
                         </Button>{' '}
                         <Button
                           color="secondary"
-                          onClick={this.toggle('nested_parent')}
-                        >
+                          onClick={this.toggle('nested_parent')}>
                           All Done
                         </Button>
                       </ModalFooter>
@@ -187,14 +177,12 @@ class ModalPage extends React.Component {
                   <ModalFooter>
                     <Button
                       color="primary"
-                      onClick={this.toggle('nested_parent')}
-                    >
+                      onClick={this.toggle('nested_parent')}>
                       Do Something
                     </Button>{' '}
                     <Button
                       color="secondary"
-                      onClick={this.toggle('nested_parent')}
-                    >
+                      onClick={this.toggle('nested_parent')}>
                       Cancel
                     </Button>
                   </ModalFooter>

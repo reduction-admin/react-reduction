@@ -1,24 +1,25 @@
-import React from 'react';
-
-import { Card, CardHeader, CardBody, Row, Col, Table } from 'reactstrap';
-
 import Page from 'components/Page';
+import React from 'react';
+import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-const tableProps = ['', 'bordered', 'striped', 'hover'];
+const tableTypes = ['', 'bordered', 'striped', 'hover'];
 
 const TablePage = () => {
   return (
-    <Page title="Tables" breadcrumbs={[{ name: 'tables', active: true }]} className="TablePage">
-      {tableProps.map(table => (
-        <Row>
+    <Page
+      title="Tables"
+      breadcrumbs={[{ name: 'tables', active: true }]}
+      className="TablePage">
+      {tableTypes.map((tableType, index) => (
+        <Row key={index}>
           <Col>
             <Card className="mb-3">
-              <CardHeader>{table || 'default'}</CardHeader>
+              <CardHeader>{tableType || 'default'}</CardHeader>
               <CardBody>
                 <Row>
                   <Col>
                     <Card body>
-                      <Table {...{ [table]: true }}>
+                      <Table {...{ [tableType]: true }}>
                         <thead>
                           <tr>
                             <th>#</th>
@@ -53,7 +54,7 @@ const TablePage = () => {
 
                   <Col>
                     <Card body>
-                      <Table inverse>
+                      <Table dark>
                         <thead>
                           <tr>
                             <th>#</th>
@@ -178,7 +179,7 @@ const TablePage = () => {
           <Card className="mb-3">
             <CardHeader>Contextual</CardHeader>
             <CardBody>
-              <Table inverse>
+              <Table dark>
                 <thead>
                   <tr>
                     <th scope="col">Type</th>
