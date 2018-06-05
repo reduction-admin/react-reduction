@@ -18,6 +18,12 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  FormFeedback
 } from 'reactstrap';
 
 import { Line } from 'react-chartjs-2';
@@ -71,7 +77,7 @@ class CardPage extends React.Component {
 
   render() {
   return (
-    <Page title="Cards" breadcrumbs={[{ name: 'cards', active: true }]}>
+    <Page title="Cards" breadcrumbs={[{ name: 'cards', active: true }]} style={{marginTop: '80px'}}>
       <Row>
         <Col md={6} sm={6} xs={12} className="mb-3">
           <Card>
@@ -98,7 +104,63 @@ class CardPage extends React.Component {
                   North Carolina Tar Heels at Cal Bears Football <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Sep 01, 2018)</span>
                 </ModalHeader>
                 <ModalBody>
-                  <WrapperCard />
+                <Form className="col-sm-6">
+                  <FormGroup row>
+                    <Label for="exampleEmail" sm={4}>
+                      Bid per Ticket ($)
+                    </Label>
+                    <Col sm={8}>
+                      <Input
+                        type="email"
+                        name="email"
+                        placeholder="Enter Amount per Ticket"
+                      />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="exampleSelect" sm={4}>
+                      No.Of Tickets
+                    </Label>
+                    <Col sm={8}>
+                      <Input type="select" name="select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>8</option>
+                        <option>8</option>
+                    </Input>
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="exampleSelect" sm={4}>
+                      Bid Expires on
+                    </Label>
+                    <Col sm={8}>
+                      <Input type="select" name="select">
+                        <option>Event Date</option>
+                        <option>1 DAY</option>
+                        <option>2 DAYS</option>
+                        <option>4 DAYS</option>
+                        <option>6 DAYS</option>
+                        <option>10 DAYS</option>
+                    </Input>
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label for="exampleText" sm={4}>
+                      Additional Notes
+                    </Label>
+                    <Col sm={8}>
+                      <Input type="textarea" name="text" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup check row>
+                    <Col sm={{ size: 10, offset: 9 }}>
+                      <Button>Place Bid</Button>
+                    </Col>
+                  </FormGroup>
+                </Form>
                 </ModalBody>
               </Modal>
             </CardBody>
@@ -139,6 +201,7 @@ class CardPage extends React.Component {
               <CardText>
                 <span style={{fontSize: '13px', color: 'gray'}}>Oracle Arena, Oakland, CA, US</span>
               </CardText>
+
               <div style={{ paddingTop:'70px'}}>
               <Button color="primary" outline className="mr-1" size="sm">
                 Lowest Price <Badge color="primary">$190</Badge>
@@ -150,6 +213,17 @@ class CardPage extends React.Component {
                 Place Bid
               </Button>
               </div>
+              <Modal
+                isOpen={this.state.modal_backdrop}
+                toggle={this.toggle('backdrop')}
+                backdrop={this.state.backdrop}>
+                <ModalHeader toggle={this.toggle('backdrop')}>
+                  North Carolina Tar Heels at Cal Bears Football <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Sep 01, 2018)</span>
+                </ModalHeader>
+                <ModalBody>
+                  <WrapperCard />
+                </ModalBody>
+              </Modal>
             </CardBody>
           </Card>
         </Col>

@@ -86,7 +86,7 @@ class Header extends React.Component {
     const { isNotificationConfirmed } = this.state;
 
     return (
-      <Navbar light expand className={bem.b('bg-white')}>
+      <Navbar light expand className={bem.b('bg-white', 'fixed-top')}>
         <Nav navbar className="mr-2">
           <Button outline>
             <MdClearAll size={25} />
