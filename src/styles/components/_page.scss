@@ -34,4 +34,17 @@
       margin-bottom: 1rem;
     }
   }
+  .card-img-top{
+    height: 270px;
+  }
+  .btn-custom{
+    color: #fff;
+    background: #00b5b5 linear-gradient(180deg, #00b5b5, #00b5b5) repeat-x;
+    border-color: #00b5b5;
+  }
+  .btn-custom:hover {
+    color: #fff;
+    background: #0fb5b5 linear-gradient(180deg, #0fb5b5, #0fb5b5) repeat-x;
+    border-color: #0fb5b5;
+}
 }

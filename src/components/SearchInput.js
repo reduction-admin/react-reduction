@@ -13,7 +13,8 @@ const SearchInput = () => {
       <Input
         type="search"
         className="cr-search-form__input"
-        placeholder="Search..."
+        placeholder="Search For Event, Artist, Team or Venue..."
+        style={{width:'600px'}}
       />
     </Form>
   );
