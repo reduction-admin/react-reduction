@@ -36,12 +36,32 @@
     border: 0px !important;
     border-radius: 0.3rem;
     outline: 0;
+    height: 1000px
 }
 .modal-dialog {
      max-width: none;
     position: relative;
     width: auto;
-    margin: 4rem 0rem;
+    margin: 73px 0rem;
     pointer-events: none;
     height: 100%
+}
+.close {
+    float: right;
+    font-size: 3.5rem;
+     font-weight: 300;
+}
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-left: 450px;
+    border-bottom: none;
+}
+.modal-body {
+    padding-left: 450px;
 }
