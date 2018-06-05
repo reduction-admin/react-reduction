@@ -22,3 +22,26 @@
 .badge:empty {
   display: inline-block;
 }
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0px !important;
+    border-radius: 0.3rem;
+    outline: 0;
+}
+.modal-dialog {
+     max-width: none;
+    position: relative;
+    width: auto;
+    margin: 4rem 0rem;
+    pointer-events: none;
+    height: 100%
+}

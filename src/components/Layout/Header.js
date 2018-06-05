@@ -35,6 +35,7 @@ import SearchInput from 'components/SearchInput';
 import withBadge from 'hocs/withBadge';
 
 import { notificationsData } from 'demos/header';
+import logoImg from 'assets/img/ticketbid.png';
 
 const bem = bn.create('header');
 
@@ -87,30 +88,22 @@ class Header extends React.Component {
     return (
       <Navbar light expand className={bem.b('bg-white')}>
         <Nav navbar className="mr-2">
-          <Button outline onClick={this.handleSidebarControlButton}>
+          <Button outline>
             <MdClearAll size={25} />
           </Button>
         </Nav>
-        <Nav navbar>
+        <img style={{height:'50px'}} src={logoImg}/>
+        <Nav navbar style={{marginLeft:'225px'}}>
           <SearchInput />
         </Nav>
 
         <Nav navbar className={bem.e('nav-right')}>
           <NavItem className="d-inline-flex">
             <NavLink id="Popover1" className="position-relative">
-              {isNotificationConfirmed ? (
-                <MdNotificationsNone
-                  size={25}
-                  className="text-secondary can-click"
-                  onClick={this.toggleNotificationPopover}
-                />
-              ) : (
-                <MdNotificationsActiveWithBadge
-                  size={25}
-                  className="text-secondary can-click animated swing infinite"
-                  onClick={this.toggleNotificationPopover}
-                />
-              )}
+            <MdNotificationsNone
+              size={25}
+              className="text-secondary can-click"
+            />
             </NavLink>
             <Popover
               placement="bottom"
