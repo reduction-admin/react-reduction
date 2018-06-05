@@ -28,6 +28,9 @@ import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
 
 import Page from 'components/Page';
 import { UserCard } from 'components/Card';
+import { SampleMap } from '../components/SampleMap';
+import { BidingDetails } from '../components/BidingDetails';
+import { WrapperCard } from '../components/WrapperCard';
 
 import bg1Image from 'assets/img/bg/background_640-1.jpg';
 import bg3Image from 'assets/img/bg/background_640-3.jpg';
@@ -42,6 +45,7 @@ import eventImg5 from 'assets/img/event/eimg5.jpg';
 import eventImg6 from 'assets/img/event/eimg6.jpg';
 import eventImg7 from 'assets/img/event/eimg7.jpg';
 import eventImg8 from 'assets/img/event/eimg8.jpg';
+import footballfieldsvg from 'assets/img/football-st.svg';
 
 //const CardPage = () => {
 class CardPage extends React.Component {
@@ -50,7 +54,7 @@ class CardPage extends React.Component {
     modal_backdrop: false,
     modal_nested_parent: false,
     modal_nested: false,
-    backdrop: false,
+    backdrop: true,
   };
 
   toggle = modalType => () => {
@@ -64,7 +68,7 @@ class CardPage extends React.Component {
       [`modal_${modalType}`]: !this.state[`modal_${modalType}`],
     });
   };
-  
+
   render() {
   return (
     <Page title="Cards" breadcrumbs={[{ name: 'cards', active: true }]}>
@@ -73,13 +77,13 @@ class CardPage extends React.Component {
           <Card>
             <CardImg top src={eventImg1} />
             <CardBody>
-              <CardTitle>North Carolina Tar Heels at Cal Bears Football <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Sep 01, 2018)</span></CardTitle> 
+              <CardTitle>North Carolina Tar Heels at Cal Bears Football <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Sep 01, 2018)</span></CardTitle>
               <CardText>
                 <span style={{fontSize: '13px', color: 'gray'}}>California Memorial Stadium, Berkeley, CA, US</span>
               </CardText>
               <Button color="primary" outline className="mr-1">
                 Lowest Price <Badge color="primary">$120</Badge>
-              </Button>&nbsp;&nbsp;&nbsp; 
+              </Button>&nbsp;&nbsp;&nbsp;
               <Button color="info" outline className="mr-1">
                 Highest Price <Badge color="info">$230</Badge>
               </Button>
@@ -94,14 +98,7 @@ class CardPage extends React.Component {
                   North Carolina Tar Heels at Cal Bears Football <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Sep 01, 2018)</span>
                 </ModalHeader>
                 <ModalBody>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit
-                  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat cupidatat non proident, sunt in culpa qui officia
-                  deserunt mollit anim id est laborum.
+                  <WrapperCard />
                 </ModalBody>
               </Modal>
             </CardBody>
@@ -112,13 +109,13 @@ class CardPage extends React.Component {
           <Card>
             <CardImg top src={eventImg2} />
             <CardBody>
-              <CardTitle>Stockton Ports at San Jose Giants <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Fri, Jun 08, 2018)</span></CardTitle> 
+              <CardTitle>Stockton Ports at San Jose Giants <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Fri, Jun 08, 2018)</span></CardTitle>
               <CardText>
                 <span style={{fontSize: '13px', color: 'gray'}}>San Jose Municipal Stadium, San Jose, CA, US</span>
               </CardText>
               <Button color="primary" outline className="mr-1">
                 Lowest Price <Badge color="primary">$550</Badge>
-              </Button>&nbsp;&nbsp;&nbsp; 
+              </Button>&nbsp;&nbsp;&nbsp;
               <Button color="info" outline className="mr-1">
                 Highest Price <Badge color="info">$760</Badge>
               </Button>
@@ -138,14 +135,14 @@ class CardPage extends React.Component {
               style={{ width: '250px', height: 225 }}
             />
             <CardBody>
-              <CardTitle><span style={{ fontSize: '18px'}}>Big 3 Basketball Tournament</span> <span style={{ color: '#00b5b5', fontSize: '14px'}}>(Mon, Jun 11, 2018)</span></CardTitle> 
+              <CardTitle><span style={{ fontSize: '18px'}}>Big 3 Basketball Tournament</span> <span style={{ color: '#00b5b5', fontSize: '14px'}}>(Mon, Jun 11, 2018)</span></CardTitle>
               <CardText>
                 <span style={{fontSize: '13px', color: 'gray'}}>Oracle Arena, Oakland, CA, US</span>
               </CardText>
               <div style={{ paddingTop:'70px'}}>
               <Button color="primary" outline className="mr-1" size="sm">
                 Lowest Price <Badge color="primary">$190</Badge>
-              </Button>&nbsp;&nbsp;&nbsp; 
+              </Button>&nbsp;&nbsp;&nbsp;
               <Button color="info" outline className="mr-1" size="sm">
                 Highest Price <Badge color="info">$330</Badge>
               </Button>
@@ -167,7 +164,7 @@ class CardPage extends React.Component {
             <div style={{ paddingTop:'70px'}}>
             <Button color="primary" outline className="mr-1" size="sm">
               Lowest Price <Badge color="primary">$420</Badge>
-            </Button>&nbsp;&nbsp;&nbsp; 
+            </Button>&nbsp;&nbsp;&nbsp;
             <Button color="info" outline className="mr-1" size="sm">
               Highest Price <Badge color="info">$630</Badge>
             </Button>
@@ -189,13 +186,13 @@ class CardPage extends React.Component {
           <Card>
             <CardImg top src={eventImg5} />
             <CardBody>
-              <CardTitle>LAFC  at San Jose Earthquakes <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Jun 09, 2018)</span></CardTitle> 
+              <CardTitle>LAFC  at San Jose Earthquakes <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Sat, Jun 09, 2018)</span></CardTitle>
               <CardText>
                 <span style={{fontSize: '13px', color: 'gray'}}>Avaya Stadium, San Jose, CA, US</span>
               </CardText>
               <Button color="primary" outline className="mr-1">
                 Lowest Price <Badge color="primary">$320</Badge>
-              </Button>&nbsp;&nbsp;&nbsp; 
+              </Button>&nbsp;&nbsp;&nbsp;
               <Button color="info" outline className="mr-1">
                 Highest Price <Badge color="info">$999</Badge>
               </Button>
@@ -217,7 +214,7 @@ class CardPage extends React.Component {
               <div style={{ paddingTop:'7px'}}>
               <Button color="primary" outline className="mr-1"  size="sm">
                 Lowest Price <Badge color="primary">$110</Badge>
-              </Button>&nbsp;&nbsp;&nbsp; 
+              </Button>&nbsp;&nbsp;&nbsp;
               <Button color="info" outline className="mr-1"  size="sm">
                 Highest Price <Badge color="info">$440</Badge>
               </Button>
@@ -242,7 +239,7 @@ class CardPage extends React.Component {
             <div style={{ paddingTop:'7px'}}>
             <Button color="primary" outline className="mr-1"  size="sm">
               Lowest Price <Badge color="primary">$200</Badge>
-            </Button>&nbsp;&nbsp;&nbsp; 
+            </Button>&nbsp;&nbsp;&nbsp;
             <Button color="info" outline className="mr-1"  size="sm">
               Highest Price <Badge color="info">$940</Badge>
             </Button>
@@ -257,13 +254,13 @@ class CardPage extends React.Component {
           <Card>
             <CardImg top src={eventImg8} />
             <CardBody>
-              <CardTitle>5 Seconds of Summer <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Tue, Jul 17, 2018)</span></CardTitle> 
+              <CardTitle>5 Seconds of Summer <span style={{ color: '#00b5b5', fontSize: '16px'}}>(Tue, Jul 17, 2018)</span></CardTitle>
               <CardText>
                 <span style={{fontSize: '13px', color: 'gray'}}>Event Center at San Jose State University, San Jose, CA, US</span>
               </CardText>
               <Button color="primary" outline className="mr-1">
                 Lowest Price <Badge color="primary">$100</Badge>
-              </Button>&nbsp;&nbsp;&nbsp; 
+              </Button>&nbsp;&nbsp;&nbsp;
               <Button color="info" outline className="mr-1">
                 Highest Price <Badge color="info">$560</Badge>
               </Button>
@@ -276,7 +273,7 @@ class CardPage extends React.Component {
       </Row>
     </Page>
   );
-  
+
 }
 };
 
