@@ -1,40 +1,33 @@
-import React from 'react';
-
-import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
-
-import componentQueries from 'react-component-queries';
-
-import {
-  // MdCardGiftcard,
-  MdLoyalty,
-  MdImportantDevices,
-} from 'react-icons/lib/md';
-import NotificationSystem from 'react-notification-system';
-
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-
-// layouts
-import { Header, Sidebar, Content, Footer } from 'components/Layout';
-
 import GAListener from 'components/GAListener';
-
-// pages
-import DashboardPage from 'pages/DashboardPage';
-import WidgetPage from 'pages/WidgetPage';
-import ButtonPage from 'pages/ButtonPage';
-import TypographyPage from 'pages/TypographyPage';
+// layouts
+import { Content, Footer, Header, Sidebar } from 'components/Layout';
 import AlertPage from 'pages/AlertPage';
-import TablePage from 'pages/TablePage';
-import CardPage from 'pages/CardPage';
+import AuthPage from 'pages/AuthPage';
 import BadgePage from 'pages/BadgePage';
 import ButtonGroupPage from 'pages/ButtonGroupPage';
+import ButtonPage from 'pages/ButtonPage';
+import CardPage from 'pages/CardPage';
+import ChartPage from 'pages/ChartPage';
+// pages
+import DashboardPage from 'pages/DashboardPage';
 import DropdownPage from 'pages/DropdownPage';
-import ProgressPage from 'pages/ProgressPage';
-import ModalPage from 'pages/ModalPage';
 import FormPage from 'pages/FormPage';
 import InputGroupPage from 'pages/InputGroupPage';
-import ChartPage from 'pages/ChartPage';
-
+import ModalPage from 'pages/ModalPage';
+import ProgressPage from 'pages/ProgressPage';
+import TablePage from 'pages/TablePage';
+import TypographyPage from 'pages/TypographyPage';
+import WidgetPage from 'pages/WidgetPage';
+import React from 'react';
+import componentQueries from 'react-component-queries';
+import {
+  MdImportantDevices,
+  // MdCardGiftcard,
+  MdLoyalty,
+} from 'react-icons/lib/md';
+import NotificationSystem from 'react-notification-system';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 import './styles/reduction.css';
 
 const getBasename = () => {
@@ -136,6 +129,8 @@ class App extends React.Component {
                 <Route path="/forms" component={FormPage} />
                 <Route path="/input-groups" component={InputGroupPage} />
                 <Route path="/charts" component={ChartPage} />
+                <Route path="/login" component={AuthPage} />
+                <Route path="/register" component={AuthPage} />
                 <Redirect to="/" />
               </Switch>
               <Footer />
