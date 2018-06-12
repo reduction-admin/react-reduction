@@ -1,37 +1,75 @@
-import logo200Image from 'assets/img/logo/logo_200.png';
-import AvatarCard from 'components/Card/AvatarCard';
-import React, { Component } from 'react';
-import { Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
-class AuthPage extends Component {
+import logo200Image from 'assets/img/logo/logo_200.png';
+import React from 'react';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Modal,
+  ModalBody,
+} from 'reactstrap';
+
+class ModalExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: true,
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+    });
+  }
+
   render() {
     return (
-      <Row>
-        <Col md={6} sm={6} xs={12}>
-          <AvatarCard avatar={logo200Image} title={process.env.REACT_APP_NAME}>
+      <div>
+        <Button color="danger" onClick={this.toggle}>
+          Login
+        </Button>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+          fade={false}
+          centered>
+          <ModalBody>
+            <div className="text-center pb-4">
+              <img
+                src={logo200Image}
+                className="rounded"
+                style={{ width: 60, height: 60 }}
+                alt="logo"
+              />
+            </div>
             <Form>
               <FormGroup>
                 <Label for="exampleEmail">Email</Label>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="with a placeholder"
-                />
+                <Input type="email" placeholder="your@email.com" />
               </FormGroup>
               <FormGroup>
                 <Label for="examplePassword">Password</Label>
-                <Input
-                  type="password"
-                  name="password"
-                  placeholder="password placeholder"
-                />
+                <Input type="password" placeholder="your password" />
               </FormGroup>
+              <Button
+                size="lg"
+                className="bg-gradient-theme-left border-0"
+                block>
+                Login
+              </Button>
             </Form>
-          </AvatarCard>
-        </Col>
-      </Row>
+          </ModalBody>
+        </Modal>
+      </div>
     );
   }
 }
 
-export default AuthPage;
+export default ModalExample;
