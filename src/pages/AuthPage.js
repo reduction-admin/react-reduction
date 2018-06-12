@@ -58,12 +58,25 @@ class ModalExample extends React.Component {
                 <Label for="examplePassword">Password</Label>
                 <Input type="password" placeholder="your password" />
               </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input type="checkbox" /> Remember me
+                </Label>
+              </FormGroup>
+
+              <hr />
+
               <Button
                 size="lg"
                 className="bg-gradient-theme-left border-0"
                 block>
                 Login
               </Button>
+              <div className="text-right pt-1">
+                <a href="#forgot-password">
+                  <small>Did you forget your password?</small>
+                </a>
+              </div>
             </Form>
           </ModalBody>
         </Modal>
