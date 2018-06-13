@@ -1,32 +1,24 @@
-/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
-
-import logo200Image from 'assets/img/logo/logo_200.png';
 import React from 'react';
-import {
-  Button,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Modal,
-  ModalBody,
-} from 'reactstrap';
+import { Button, Modal, ModalBody } from 'reactstrap';
+import AuthForm, { STATE_LOGIN } from './AuthForm';
 
 class ModalExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: true,
-    };
+  state = {
+    show: true,
+    authState: STATE_LOGIN,
+  };
 
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
+  toggle = () => {
     this.setState({
-      modal: !this.state.modal,
+      show: !this.state.show,
     });
-  }
+  };
+
+  handleAuthState = authState => {
+    this.setState({
+      authState,
+    });
+  };
 
   render() {
     return (
@@ -35,49 +27,16 @@ class ModalExample extends React.Component {
           Login
         </Button>
         <Modal
-          isOpen={this.state.modal}
+          isOpen={this.state.show}
           toggle={this.toggle}
-          className={this.props.className}
+          size="sm"
           fade={false}
           centered>
           <ModalBody>
-            <div className="text-center pb-4">
-              <img
-                src={logo200Image}
-                className="rounded"
-                style={{ width: 60, height: 60 }}
-                alt="logo"
-              />
-            </div>
-            <Form>
-              <FormGroup>
-                <Label for="exampleEmail">Email</Label>
-                <Input type="email" placeholder="your@email.com" />
-              </FormGroup>
-              <FormGroup>
-                <Label for="examplePassword">Password</Label>
-                <Input type="password" placeholder="your password" />
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input type="checkbox" /> Remember me
-                </Label>
-              </FormGroup>
-
-              <hr />
-
-              <Button
-                size="lg"
-                className="bg-gradient-theme-left border-0"
-                block>
-                Login
-              </Button>
-              <div className="text-right pt-1">
-                <a href="#forgot-password">
-                  <small>Did you forget your password?</small>
-                </a>
-              </div>
-            </Form>
+            <AuthForm
+              authState={this.state.authState}
+              onChangeAuthState={this.handleAuthState}
+            />
           </ModalBody>
         </Modal>
       </div>
