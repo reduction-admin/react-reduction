@@ -1,47 +1,35 @@
+import AuthForm, { STATE_LOGIN } from 'components/AuthForm';
 import React from 'react';
-import { Button, Modal, ModalBody } from 'reactstrap';
-import AuthForm, { STATE_LOGIN } from './AuthForm';
+import { Card, Col, Row } from 'reactstrap';
 
-class ModalExample extends React.Component {
-  state = {
-    show: true,
-    authState: STATE_LOGIN,
-  };
-
-  toggle = () => {
-    this.setState({
-      show: !this.state.show,
-    });
-  };
-
+class AuthPage extends React.Component {
   handleAuthState = authState => {
-    this.setState({
-      authState,
-    });
+    if (authState === STATE_LOGIN) {
+      this.props.history.push('/login');
+    } else {
+      this.props.history.push('/signup');
+    }
   };
 
   render() {
     return (
-      <div>
-        <Button color="danger" onClick={this.toggle}>
-          Login
-        </Button>
-        <Modal
-          isOpen={this.state.show}
-          toggle={this.toggle}
-          size="sm"
-          fade={false}
-          centered>
-          <ModalBody>
+      <Row
+        style={{
+          height: '100vh',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Col md={6} lg={4}>
+          <Card body>
             <AuthForm
-              authState={this.state.authState}
+              authState={this.props.authState}
               onChangeAuthState={this.handleAuthState}
             />
-          </ModalBody>
-        </Modal>
-      </div>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }
 
-export default ModalExample;
+export default AuthPage;
