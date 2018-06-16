@@ -11,6 +11,10 @@ class AuthPage extends React.Component {
     }
   };
 
+  handleLogoClick = () => {
+    this.props.history.push('/');
+  };
+
   render() {
     return (
       <Row
@@ -24,6 +28,7 @@ class AuthPage extends React.Component {
             <AuthForm
               authState={this.props.authState}
               onChangeAuthState={this.handleAuthState}
+              onLogoClick={this.handleLogoClick}
             />
           </Card>
         </Col>

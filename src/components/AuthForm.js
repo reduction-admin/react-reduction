@@ -46,6 +46,7 @@ class AuthForm extends React.Component {
       confirmPasswordLabel,
       confirmPasswordInputProps,
       children,
+      onLogoClick,
     } = this.props;
 
     return (
@@ -55,8 +56,9 @@ class AuthForm extends React.Component {
             <img
               src={logo200Image}
               className="rounded"
-              style={{ width: 60, height: 60 }}
+              style={{ width: 60, height: 60, cursor: 'pointer' }}
               alt="logo"
+              onClick={onLogoClick}
             />
           </div>
         )}
@@ -122,6 +124,7 @@ AuthForm.propTypes = {
   passwordInputProps: PropTypes.object,
   confirmPasswordLabel: PropTypes.string,
   confirmPasswordInputProps: PropTypes.object,
+  onLogoClick: PropTypes.func,
 };
 
 AuthForm.defaultProps = {
@@ -142,6 +145,7 @@ AuthForm.defaultProps = {
     type: 'password',
     placeholder: 'confirm your password',
   },
+  onLogoClick: () => {},
 };
 
 export default AuthForm;

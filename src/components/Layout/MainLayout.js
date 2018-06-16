@@ -25,6 +25,10 @@ class MainLayout extends React.Component {
     this.checkBreakpoint(this.props.breakpoint);
 
     setTimeout(() => {
+      if (!this.notificationSystem) {
+        return;
+      }
+
       this.notificationSystem.addNotification({
         title: <MdImportantDevices />,
         message: 'Welome to Reduction Admin!',
@@ -33,6 +37,10 @@ class MainLayout extends React.Component {
     }, 1500);
 
     setTimeout(() => {
+      if (!this.notificationSystem) {
+        return;
+      }
+
       this.notificationSystem.addNotification({
         title: <MdLoyalty />,
         message:
