@@ -1,43 +1,41 @@
+import logo200Image from 'assets/img/logo/logo_200.png';
+import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
+import SourceLink from 'components/SourceLink';
 import React from 'react';
-
-import bn from 'utils/bemnames';
-
+import FaGithub from 'react-icons/lib/fa/github';
 import {
-  Navbar,
-  Nav,
-  NavItem,
-  NavLink as BSNavLink,
+  MdAccountCircle,
+  MdArrowDropDownCircle,
+  MdBorderAll,
+  MdBrush,
+  MdChromeReaderMode,
+  MdDashboard,
+  MdExtension,
+  MdGroupWork,
+  MdInsertChart,
+  MdKeyboardArrowDown,
+  MdNotificationsActive,
+  MdPages,
+  MdRadioButtonChecked,
+  MdSend,
+  MdStar,
+  MdTextFields,
+  MdViewCarousel,
+  MdViewDay,
+  MdViewList,
+  MdWeb,
+  MdWidgets,
+} from 'react-icons/lib/md';
+import { NavLink } from 'react-router-dom';
+import {
   // UncontrolledTooltip,
   Collapse,
+  Nav,
+  Navbar,
+  NavItem,
+  NavLink as BSNavLink,
 } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
-
-import {
-  MdDashboard,
-  MdWidgets,
-  MdTextFields,
-  MdNotificationsActive,
-  MdBorderAll,
-  MdRadioButtonChecked,
-  MdWeb,
-  MdStar,
-  MdGroupWork,
-  MdArrowDropDownCircle,
-  MdBrush,
-  MdViewDay,
-  MdChromeReaderMode,
-  MdViewList,
-  MdInsertChart,
-  MdExtension,
-  MdSend,
-  MdKeyboardArrowDown,
-} from 'react-icons/lib/md';
-import FaGithub from 'react-icons/lib/fa/github';
-
-import SourceLink from 'components/SourceLink';
-
-import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
-import logo200Image from 'assets/img/logo/logo_200.png';
+import bn from 'utils/bemnames';
 
 const sidebarBackground = {
   backgroundImage: `url("${sidebarBgImage}")`,
@@ -72,6 +70,16 @@ const navContents = [
   { to: '/tables', name: 'tables', exact: false, Icon: MdBorderAll },
 ];
 
+const pageContents = [
+  { to: '/login', name: 'login / signup', exact: false, Icon: MdAccountCircle },
+  {
+    to: '/login-modal',
+    name: 'login modal',
+    exact: false,
+    Icon: MdViewCarousel,
+  },
+];
+
 const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
   { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
@@ -85,6 +93,7 @@ class Sidebar extends React.Component {
   state = {
     isOpenComponents: true,
     isOpenContents: true,
+    isOpenPages: true,
   };
 
   handleClick = name => () => {
@@ -193,6 +202,44 @@ class Sidebar extends React.Component {
             </NavItem>
             <Collapse isOpen={this.state.isOpenContents}>
               {navContents.map(({ to, name, exact, Icon }, index) => (
+                <NavItem key={index} className={bem.e('nav-item')}>
+                  <BSNavLink
+                    id={`navItem-${name}-${index}`}
+                    className="text-uppercase"
+                    tag={NavLink}
+                    to={to}
+                    activeClassName="active"
+                    exact={exact}>
+                    <Icon className={bem.e('nav-item-icon')} />
+                    <span className="">{name}</span>
+                  </BSNavLink>
+                </NavItem>
+              ))}
+            </Collapse>
+
+            <NavItem
+              className={bem.e('nav-item')}
+              onClick={this.handleClick('Pages')}>
+              <BSNavLink className={bem.e('nav-item-collapse')}>
+                <div className="d-flex">
+                  <MdPages className={bem.e('nav-item-icon')} />
+                  <span className="">Pages</span>
+                </div>
+                <MdKeyboardArrowDown
+                  className={bem.e('nav-item-icon')}
+                  style={{
+                    padding: 0,
+                    transform: this.state.isOpenPages
+                      ? 'rotate(0deg)'
+                      : 'rotate(-90deg)',
+                    transitionDuration: '0.3s',
+                    transitionProperty: 'transform',
+                  }}
+                />
+              </BSNavLink>
+            </NavItem>
+            <Collapse isOpen={this.state.isOpenPages}>
+              {pageContents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
                     id={`navItem-${name}-${index}`}

@@ -1,3 +1,5 @@
+// @import 'bootstrap/variables';
+
 // utils
 .can-click {
   cursor: pointer;
@@ -34,5 +36,14 @@
 .hidden-xs {
   @include media-breakpoint-only(xs) {
     display: none;
+  }
+}
+
+.modal-backdrop-light {
+  background: map-get($map: $theme-colors, $key: light);
+  opacity: 1;
+
+  &.modal-backdrop.show {
+    opacity: 1;
   }
 }

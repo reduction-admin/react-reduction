@@ -1,40 +1,27 @@
-import React from 'react';
-
-import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
-
-import componentQueries from 'react-component-queries';
-
-import {
-  // MdCardGiftcard,
-  MdLoyalty,
-  MdImportantDevices,
-} from 'react-icons/lib/md';
-import NotificationSystem from 'react-notification-system';
-
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-
-// layouts
-import { Header, Sidebar, Content, Footer } from 'components/Layout';
-
+import { STATE_LOGIN, STATE_SIGNUP } from 'components/AuthForm';
 import GAListener from 'components/GAListener';
-
-// pages
-import DashboardPage from 'pages/DashboardPage';
-import WidgetPage from 'pages/WidgetPage';
-import ButtonPage from 'pages/ButtonPage';
-import TypographyPage from 'pages/TypographyPage';
+import { EmptyLayout, LayoutRoute, MainLayout } from 'components/Layout';
 import AlertPage from 'pages/AlertPage';
-import TablePage from 'pages/TablePage';
-import CardPage from 'pages/CardPage';
+import AuthModalPage from 'pages/AuthModalPage';
+import AuthPage from 'pages/AuthPage';
 import BadgePage from 'pages/BadgePage';
 import ButtonGroupPage from 'pages/ButtonGroupPage';
+import ButtonPage from 'pages/ButtonPage';
+import CardPage from 'pages/CardPage';
+import ChartPage from 'pages/ChartPage';
+// pages
+import DashboardPage from 'pages/DashboardPage';
 import DropdownPage from 'pages/DropdownPage';
-import ProgressPage from 'pages/ProgressPage';
-import ModalPage from 'pages/ModalPage';
 import FormPage from 'pages/FormPage';
 import InputGroupPage from 'pages/InputGroupPage';
-import ChartPage from 'pages/ChartPage';
-
+import ModalPage from 'pages/ModalPage';
+import ProgressPage from 'pages/ProgressPage';
+import TablePage from 'pages/TablePage';
+import TypographyPage from 'pages/TypographyPage';
+import WidgetPage from 'pages/WidgetPage';
+import React from 'react';
+import componentQueries from 'react-component-queries';
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './styles/reduction.css';
 
 const getBasename = () => {
@@ -42,113 +29,131 @@ const getBasename = () => {
 };
 
 class App extends React.Component {
-  static isSidebarOpen() {
-    return document
-      .querySelector('.cr-sidebar')
-      .classList.contains('cr-sidebar--open');
-  }
-
-  componentWillReceiveProps({ breakpoint }) {
-    if (breakpoint !== this.props.breakpoint) {
-      this.checkBreakpoint(breakpoint);
-    }
-  }
-
-  componentDidMount() {
-    this.checkBreakpoint(this.props.breakpoint);
-
-    setTimeout(() => {
-      this.notificationSystem.addNotification({
-        title: <MdImportantDevices />,
-        message: 'Welome to Reduction Admin!',
-        level: 'info',
-      });
-    }, 1500);
-
-    setTimeout(() => {
-      this.notificationSystem.addNotification({
-        title: <MdLoyalty />,
-        message:
-          'Reduction is carefully designed template powered by React and Bootstrap4!',
-        level: 'info',
-      });
-    }, 2500);
-  }
-
-  // close sidebar when
-  handleContentClick = event => {
-    // close sidebar if sidebar is open and screen size is less than `md`
-    if (
-      App.isSidebarOpen() &&
-      (this.props.breakpoint === 'xs' ||
-        this.props.breakpoint === 'sm' ||
-        this.props.breakpoint === 'md')
-    ) {
-      this.openSidebar('close');
-    }
-  };
-
-  checkBreakpoint(breakpoint) {
-    switch (breakpoint) {
-      case 'xs':
-      case 'sm':
-      case 'md':
-        return this.openSidebar('close');
-
-      case 'lg':
-      case 'xl':
-      default:
-        return this.openSidebar('open');
-    }
-  }
-
-  openSidebar(openOrClose) {
-    if (openOrClose === 'open') {
-      return document
-        .querySelector('.cr-sidebar')
-        .classList.add('cr-sidebar--open');
-    }
-
-    document.querySelector('.cr-sidebar').classList.remove('cr-sidebar--open');
-  }
-
   render() {
     return (
       <BrowserRouter basename={getBasename()}>
         <GAListener>
-          <main className="cr-app bg-light">
-            <Sidebar />
-            <Content fluid onClick={this.handleContentClick}>
-              <Header />
-              <Switch>
-                <Route exact path="/" component={DashboardPage} />
-                <Route path="/buttons" component={ButtonPage} />
-                <Route path="/cards" component={CardPage} />
-                <Route path="/widgets" component={WidgetPage} />
-                <Route path="/typography" component={TypographyPage} />
-                <Route path="/alerts" component={AlertPage} />
-                <Route path="/tables" component={TablePage} />
-                <Route path="/badges" component={BadgePage} />
-                <Route path="/button-groups" component={ButtonGroupPage} />
-                <Route path="/dropdowns" component={DropdownPage} />
-                <Route path="/progress" component={ProgressPage} />
-                <Route path="/modals" component={ModalPage} />
-                <Route path="/forms" component={FormPage} />
-                <Route path="/input-groups" component={InputGroupPage} />
-                <Route path="/charts" component={ChartPage} />
-                <Redirect to="/" />
-              </Switch>
-              <Footer />
-            </Content>
-
-            <NotificationSystem
-              dismissible={false}
-              ref={notificationSystem =>
-                (this.notificationSystem = notificationSystem)
-              }
-              style={NOTIFICATION_SYSTEM_STYLE}
+          <Switch>
+            <LayoutRoute
+              exact
+              path="/login"
+              layout={EmptyLayout}
+              component={props => (
+                <AuthPage {...props} authState={STATE_LOGIN} />
+              )}
             />
-          </main>
+            <LayoutRoute
+              exact
+              path="/signup"
+              layout={EmptyLayout}
+              component={props => (
+                <AuthPage {...props} authState={STATE_SIGNUP} />
+              )}
+            />
+            <LayoutRoute
+              exact
+              path="/login-modal"
+              layout={MainLayout}
+              component={AuthModalPage}
+            />
+            <LayoutRoute
+              exact
+              path="/"
+              layout={MainLayout}
+              component={DashboardPage}
+            />
+            <LayoutRoute
+              exact
+              path="/buttons"
+              layout={MainLayout}
+              component={ButtonPage}
+            />
+            <LayoutRoute
+              exact
+              path="/cards"
+              layout={MainLayout}
+              component={CardPage}
+            />
+            <LayoutRoute
+              exact
+              path="/widgets"
+              layout={MainLayout}
+              component={WidgetPage}
+            />
+            <LayoutRoute
+              exact
+              path="/typography"
+              layout={MainLayout}
+              component={TypographyPage}
+            />
+            <LayoutRoute
+              exact
+              path="/alerts"
+              layout={MainLayout}
+              component={AlertPage}
+            />
+            <LayoutRoute
+              exact
+              path="/tables"
+              layout={MainLayout}
+              component={TablePage}
+            />
+            <LayoutRoute
+              exact
+              path="/badges"
+              layout={MainLayout}
+              component={BadgePage}
+            />
+            <LayoutRoute
+              exact
+              path="/button-groups"
+              layout={MainLayout}
+              component={ButtonGroupPage}
+            />
+            <LayoutRoute
+              exact
+              path="/dropdowns"
+              layout={MainLayout}
+              component={DropdownPage}
+            />
+            <LayoutRoute
+              exact
+              path="/progress"
+              layout={MainLayout}
+              component={ProgressPage}
+            />
+            <LayoutRoute
+              exact
+              path="/modals"
+              layout={MainLayout}
+              component={ModalPage}
+            />
+            <LayoutRoute
+              exact
+              path="/forms"
+              layout={MainLayout}
+              component={FormPage}
+            />
+            <LayoutRoute
+              exact
+              path="/input-groups"
+              layout={MainLayout}
+              component={InputGroupPage}
+            />
+            <LayoutRoute
+              exact
+              path="/charts"
+              layout={MainLayout}
+              component={ChartPage}
+            />
+            <LayoutRoute
+              exact
+              path="/register"
+              layout={MainLayout}
+              component={AuthPage}
+            />
+            <Redirect to="/" />
+          </Switch>
         </GAListener>
       </BrowserRouter>
     );
