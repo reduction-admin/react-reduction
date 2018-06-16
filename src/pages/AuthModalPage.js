@@ -14,7 +14,7 @@ import {
 
 class AuthModalPage extends React.Component {
   state = {
-    show: true,
+    show: false,
     authState: STATE_LOGIN,
   };
 
