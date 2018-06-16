@@ -132,7 +132,7 @@ class ModalPage extends React.Component {
 
           <Col md="12" sm="12" xs="12">
             <Card>
-              <CardHeader>Modal</CardHeader>
+              <CardHeader>Nested</CardHeader>
               <CardBody>
                 <Button color="danger" onClick={this.toggle('nested_parent')}>
                   Launch Modal

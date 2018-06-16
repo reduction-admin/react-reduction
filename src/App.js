@@ -2,6 +2,7 @@ import { STATE_LOGIN, STATE_SIGNUP } from 'components/AuthForm';
 import GAListener from 'components/GAListener';
 import { EmptyLayout, LayoutRoute, MainLayout } from 'components/Layout';
 import AlertPage from 'pages/AlertPage';
+import AuthModalPage from 'pages/AuthModalPage';
 import AuthPage from 'pages/AuthPage';
 import BadgePage from 'pages/BadgePage';
 import ButtonGroupPage from 'pages/ButtonGroupPage';
@@ -48,6 +49,12 @@ class App extends React.Component {
               component={props => (
                 <AuthPage {...props} authState={STATE_SIGNUP} />
               )}
+            />
+            <LayoutRoute
+              exact
+              path="/login-modal"
+              layout={MainLayout}
+              component={AuthModalPage}
             />
             <LayoutRoute
               exact

@@ -4,6 +4,7 @@ import SourceLink from 'components/SourceLink';
 import React from 'react';
 import FaGithub from 'react-icons/lib/fa/github';
 import {
+  MdAccountCircle,
   MdArrowDropDownCircle,
   MdBorderAll,
   MdBrush,
@@ -15,11 +16,11 @@ import {
   MdKeyboardArrowDown,
   MdNotificationsActive,
   MdPages,
-  MdPerson,
   MdRadioButtonChecked,
   MdSend,
   MdStar,
   MdTextFields,
+  MdViewCarousel,
   MdViewDay,
   MdViewList,
   MdWeb,
@@ -70,7 +71,13 @@ const navContents = [
 ];
 
 const pageContents = [
-  { to: '/login', name: 'login / signup', exact: false, Icon: MdPerson },
+  { to: '/login', name: 'login / signup', exact: false, Icon: MdAccountCircle },
+  {
+    to: '/login-modal',
+    name: 'login modal',
+    exact: false,
+    Icon: MdViewCarousel,
+  },
 ];
 
 const navItems = [
