@@ -1,7 +1,6 @@
+import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'utils/propTypes';
-
-import classNames from 'classnames';
 
 const tagMap = {
   h1: 'h1',
@@ -19,7 +18,7 @@ const tagMap = {
   blockquote: 'blockquote',
 };
 
-const types = Object.values(tagMap);
+const types = Object.keys(tagMap);
 
 const Typography = ({ tag: Tag, className, type, ...restProps }) => {
   const classes = classNames({ [type]: !!type }, className);
