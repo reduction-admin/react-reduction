@@ -1,13 +1,13 @@
 import {
-  MdThumbUp,
-  MdThumbsUpDown,
   MdLanguage,
   MdLightbulbOutline,
+  MdMailOutline,
   MdPlayCircleOutline,
   MdRadio,
   MdSnooze,
-  MdMailOutline,
-} from 'react-icons/lib/md';
+  MdThumbsUpDown,
+  MdThumbUp,
+} from 'react-icons/md';
 
 export const iconWidgetsData = [
   {

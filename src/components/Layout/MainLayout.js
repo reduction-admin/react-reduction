@@ -4,7 +4,7 @@ import {
   MdImportantDevices,
   // MdCardGiftcard,
   MdLoyalty,
-} from 'react-icons/lib/md';
+} from 'react-icons/md';
 import NotificationSystem from 'react-notification-system';
 import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 

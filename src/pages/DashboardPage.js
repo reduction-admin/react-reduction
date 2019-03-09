@@ -1,65 +1,54 @@
-import React from 'react';
-
-import { getColor } from 'utils/colors';
-
+import { AnnouncementCard, TodosCard } from 'components/Card';
+import HorizontalAvatarList from 'components/HorizontalAvatarList';
+import MapWithBubbles from 'components/MapWithBubbles';
+import Page from 'components/Page';
+import ProductMedia from 'components/ProductMedia';
+import SupportTicket from 'components/SupportTicket';
+import UserProgressTable from 'components/UserProgressTable';
+import { IconWidget, NumberWidget } from 'components/Widget';
+import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
 import {
+  avatarsData,
+  chartjs,
+  productsData,
+  supportTicketsData,
+  todosData,
+  userProgressTableData,
+} from 'demos/dashboardPage';
+import React from 'react';
+import { Bar, Line } from 'react-chartjs-2';
+import {
+  MdBubbleChart,
+  MdInsertChart,
+  MdPersonPin,
+  MdPieChart,
+  MdRateReview,
+  MdShare,
+  MdShowChart,
+  MdThumbUp,
+} from 'react-icons/md';
+import InfiniteCalendar from 'react-infinite-calendar';
+import {
+  Badge,
+  Button,
   Card,
   CardBody,
+  CardDeck,
+  CardGroup,
   CardHeader,
   CardTitle,
-  CardGroup,
-  CardDeck,
-  Row,
   Col,
   ListGroup,
   ListGroupItem,
-  Badge,
-  Button,
+  Row,
 } from 'reactstrap';
-
-import {
-  MdInsertChart,
-  MdBubbleChart,
-  MdPieChart,
-  MdShowChart,
-  MdPersonPin,
-  MdRateReview,
-  MdThumbUp,
-  MdShare,
-} from 'react-icons/lib/md';
-
-import InfiniteCalendar from 'react-infinite-calendar';
-
-import { Line, Bar } from 'react-chartjs-2';
-
-import {
-  supportTicketsData,
-  productsData,
-  userProgressTableData,
-  avatarsData,
-  todosData,
-  chartjs,
-} from 'demos/dashboardPage';
-import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
-
-import Page from 'components/Page';
-
-import SupportTicket from 'components/SupportTicket';
-import ProductMedia from 'components/ProductMedia';
-import UserProgressTable from 'components/UserProgressTable';
-
-import { AnnouncementCard, TodosCard } from 'components/Card';
-
-import { NumberWidget, IconWidget } from 'components/Widget';
-
-import MapWithBubbles from 'components/MapWithBubbles';
-import HorizontalAvatarList from 'components/HorizontalAvatarList';
+import { getColor } from 'utils/colors';
 
 const today = new Date();
 const lastWeek = new Date(
   today.getFullYear(),
   today.getMonth(),
-  today.getDate() - 7
+  today.getDate() - 7,
 );
 
 class DashboardPage extends React.Component {
@@ -76,7 +65,8 @@ class DashboardPage extends React.Component {
       <Page
         className="DashboardPage"
         title="Dashboard"
-        breadcrumbs={[{ name: 'Dashboard', active: true }]}>
+        breadcrumbs={[{ name: 'Dashboard', active: true }]}
+      >
         <Row>
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
@@ -210,7 +200,7 @@ class DashboardPage extends React.Component {
                       description={description}
                       right={right}
                     />
-                  )
+                  ),
                 )}
               </CardBody>
             </Card>
@@ -255,7 +245,8 @@ class DashboardPage extends React.Component {
               />
               <CardBody
                 className="text-primary"
-                style={{ position: 'absolute' }}>
+                style={{ position: 'absolute' }}
+              >
                 <CardTitle>
                   <MdInsertChart /> Sales
                 </CardTitle>
@@ -282,7 +273,8 @@ class DashboardPage extends React.Component {
               />
               <CardBody
                 className="text-primary"
-                style={{ position: 'absolute' }}>
+                style={{ position: 'absolute' }}
+              >
                 <CardTitle>
                   <MdInsertChart /> Revenue
                 </CardTitle>
@@ -308,7 +300,8 @@ class DashboardPage extends React.Component {
               />
               <CardBody
                 className="text-primary"
-                style={{ position: 'absolute', right: 0 }}>
+                style={{ position: 'absolute', right: 0 }}
+              >
                 <CardTitle>
                   <MdInsertChart /> Profit
                 </CardTitle>
