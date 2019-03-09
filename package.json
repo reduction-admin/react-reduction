@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "https://reduction-admin.github.io/react-reduction",
   "dependencies": {
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "chart.js": "^2.7.2",
     "classnames": "^2.2.6",
     "d3-geo": "^1.10.0",
@@ -24,7 +24,7 @@
     "react-simple-maps": "^0.12.1",
     "react-sizeme": "^2.5.2",
     "react-transition-group": "^2.3.1",
-    "reactstrap": "^6.1.0",
+    "reactstrap": "^7.1.0",
     "victory": "^0.27.1"
   },
   "devDependencies": {
