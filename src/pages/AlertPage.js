@@ -1,19 +1,17 @@
 /* eslint-disable jsx-a11y/href-no-hash */
 
-import React from 'react';
-
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Row,
-  Col,
-  Alert,
-  UncontrolledAlert,
-} from 'reactstrap';
-
 import Page from 'components/Page';
 import Typography from 'components/Typography';
+import React from 'react';
+import {
+  Alert,
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
+  Row,
+  UncontrolledAlert,
+} from 'reactstrap';
 
 const AlertPage = () => {
   return (
@@ -25,56 +23,56 @@ const AlertPage = () => {
             <CardBody>
               <Alert color="primary">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="secondary">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="success">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="danger">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="warning">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="info">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="light">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
               </Alert>
               <Alert color="dark">
                 Give it a{' '}
-                <a href="#" className="alert-link">
+                <a href="#link" className="alert-link">
                   click
                 </a>{' '}
                 if you like.
