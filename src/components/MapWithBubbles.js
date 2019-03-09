@@ -1,17 +1,16 @@
+import world50m from 'assets/geo-data/world-50m.json';
+import cities from 'assets/geo-data/world-most-populous-cities.json';
+import { scaleLinear } from 'd3-scale';
 import React, { Component } from 'react';
 import {
   ComposableMap,
-  ZoomableGroup,
   Geographies,
   Geography,
-  Markers,
   Marker,
+  Markers,
+  ZoomableGroup,
 } from 'react-simple-maps';
-import { scaleLinear } from 'd3-scale';
-
 import { getColor } from 'utils/colors';
-
-import world50m from 'assets/geo-data/world-50m.json';
 
 const cityScale = scaleLinear()
   .domain([0, 37843000])
@@ -19,16 +18,8 @@ const cityScale = scaleLinear()
 
 class BubbleMap extends Component {
   state = {
-    cities: [],
+    cities,
   };
-
-  async componentDidMount() {
-    const cities = await import('assets/geo-data/world-most-populous-cities.json');
-
-    this.setState({
-      cities,
-    });
-  }
 
   render() {
     // const primaryColor = getColor('primary');
@@ -43,7 +34,8 @@ class BubbleMap extends Component {
         style={{
           width: '100%',
           height: 'auto',
-        }}>
+        }}
+      >
         <ZoomableGroup center={[0, 20]} disablePanning>
           <Geographies geography={world50m}>
             {(geographies, projection) =>
@@ -75,7 +67,7 @@ class BubbleMap extends Component {
                         },
                       }}
                     />
-                  )
+                  ),
               )
             }
           </Geographies>
