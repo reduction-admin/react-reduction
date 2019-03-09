@@ -1,7 +1,6 @@
 import React from 'react';
-
+import { MdSearch } from 'react-icons/md';
 import { Form, Input } from 'reactstrap';
-import { MdSearch } from 'react-icons/lib/md';
 
 const SearchInput = () => {
   return (
