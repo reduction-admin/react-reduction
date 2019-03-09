@@ -1,21 +1,19 @@
-import React from 'react';
-
-import {
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  FormFeedback,
-} from 'reactstrap';
-
 import Page from 'components/Page';
+import React from 'react';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
+  Form,
+  FormFeedback,
+  FormGroup,
+  FormText,
+  Input,
+  Label,
+  Row,
+} from 'reactstrap';
 
 const FormPage = () => {
   return (
@@ -28,7 +26,7 @@ const FormPage = () => {
               <Form>
                 <FormGroup>
                   <Label for="exampleEmail">Plain Text (Static)</Label>
-                  <Input plaintext>Some plain text/ static value</Input>
+                  <Input plaintext value="Some plain text/ static value" />
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleEmail">Email</Label>
@@ -121,11 +119,7 @@ const FormPage = () => {
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleSelectMulti">Select Multiple</Label>
-                  <Input
-                    type="select"
-                    name="selectMulti"
-                    multiple
-                  >
+                  <Input type="select" name="selectMulti" multiple>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -203,11 +197,7 @@ const FormPage = () => {
                     Select Multiple
                   </Label>
                   <Col sm={10}>
-                    <Input
-                      type="select"
-                      name="selectMulti"
-                      multiple
-                    />
+                    <Input type="select" name="selectMulti" multiple />
                   </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -326,11 +316,7 @@ const FormPage = () => {
                   <Label for="exampleEmail" hidden>
                     Email
                   </Label>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
+                  <Input type="email" name="email" placeholder="Email" />
                 </FormGroup>{' '}
                 <FormGroup>
                   <Label for="examplePassword" hidden>
