@@ -26,7 +26,11 @@ const FormPage = () => {
               <Form>
                 <FormGroup>
                   <Label for="exampleEmail">Plain Text (Static)</Label>
-                  <Input plaintext value="Some plain text/ static value" />
+                  <Input
+                    plaintext
+                    value="Some plain text/ static value"
+                    readOnly
+                  />
                 </FormGroup>
                 <FormGroup>
                   <Label for="exampleEmail">Email</Label>

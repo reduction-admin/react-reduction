@@ -1,9 +1,6 @@
-import React from 'react';
-
-import { Row, Col, Card, CardHeader, CardBody, Progress } from 'reactstrap';
-
 import Page from 'components/Page';
-
+import React from 'react';
+import { Card, CardBody, CardHeader, Col, Progress, Row } from 'reactstrap';
 import { getThemeColors } from 'utils/colors';
 
 const colors = getThemeColors();
@@ -20,8 +17,9 @@ const ProgressPage = () => {
           <Card>
             <CardHeader>Colors</CardHeader>
             <CardBody>
-              {colors.map(color => (
+              {colors.map((color, index) => (
                 <Progress
+                  key={index}
                   color={color}
                   value={getRandomInt()}
                   className="mb-3"
@@ -35,11 +33,16 @@ const ProgressPage = () => {
           <Card>
             <CardHeader>Labels</CardHeader>
             <CardBody>
-              {colors.map(color => {
+              {colors.map((color, index) => {
                 const ranInt = getRandomInt();
 
                 return (
-                  <Progress color={color} value={ranInt} className="mb-3">
+                  <Progress
+                    key={index}
+                    color={color}
+                    value={ranInt}
+                    className="mb-3"
+                  >
                     {ranInt}%
                   </Progress>
                 );
@@ -54,8 +57,9 @@ const ProgressPage = () => {
           <Card>
             <CardHeader>Striped</CardHeader>
             <CardBody>
-              {colors.map(color => (
+              {colors.map((color, index) => (
                 <Progress
+                  key={index}
                   striped
                   color={color}
                   value={getRandomInt()}
@@ -70,8 +74,9 @@ const ProgressPage = () => {
           <Card>
             <CardHeader>Animated</CardHeader>
             <CardBody>
-              {colors.map(color => (
+              {colors.map((color, index) => (
                 <Progress
+                  key={index}
                   animated
                   color={color}
                   value={getRandomInt()}

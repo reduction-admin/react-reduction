@@ -1,34 +1,28 @@
+import bg11Image from 'assets/img/bg/background_1920-11.jpg';
+import bg18Image from 'assets/img/bg/background_1920-18.jpg';
+import bg1Image from 'assets/img/bg/background_640-1.jpg';
+import bg3Image from 'assets/img/bg/background_640-3.jpg';
+import user1Image from 'assets/img/users/100_1.jpg';
+import { UserCard } from 'components/Card';
+import Page from 'components/Page';
+import { bgCards, gradientCards, overlayCards } from 'demos/cardPage';
+import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
 import React from 'react';
-
+import { Line } from 'react-chartjs-2';
 import {
+  Button,
   Card,
-  CardTitle,
   CardBody,
   CardImg,
   CardImgOverlay,
-  CardText,
   CardLink,
+  CardText,
+  CardTitle,
+  Col,
   ListGroup,
   ListGroupItem,
   Row,
-  Col,
-  Button,
 } from 'reactstrap';
-
-import { Line } from 'react-chartjs-2';
-
-import { overlayCards, bgCards, gradientCards } from 'demos/cardPage';
-
-import { getStackLineChart, stackLineChartOptions } from 'demos/chartjs';
-
-import Page from 'components/Page';
-import { UserCard } from 'components/Card';
-
-import bg1Image from 'assets/img/bg/background_640-1.jpg';
-import bg3Image from 'assets/img/bg/background_640-3.jpg';
-import bg11Image from 'assets/img/bg/background_1920-11.jpg';
-import bg18Image from 'assets/img/bg/background_1920-18.jpg';
-import user1Image from 'assets/img/users/100_1.jpg';
 
 const CardPage = () => {
   return (
@@ -106,8 +100,8 @@ const CardPage = () => {
       </Row>
 
       <Row>
-        {['', 'top', 'left', 'right'].map(color => (
-          <Col md={6} sm={6} xs={12} className="mb-3">
+        {['', 'top', 'left', 'right'].map((color, index) => (
+          <Col key={index} md={6} sm={6} xs={12} className="mb-3">
             <Card
               inverse
               className={`border-0 bg-gradient-theme${
@@ -115,7 +109,8 @@ const CardPage = () => {
               }${color}`}
               style={{
                 height: 200,
-              }}>
+              }}
+            >
               <CardBody className="d-flex flex-column justify-content-start align-items-start">
                 <CardTitle>Card title</CardTitle>
                 <CardText>card text</CardText>
@@ -133,9 +128,9 @@ const CardPage = () => {
       </Row>
 
       <Row>
-        {overlayCards.map(({ imgUrl }) => {
+        {overlayCards.map(({ imgUrl }, index) => {
           return (
-            <Col md={6} sm={6} xs={12}>
+            <Col key={index} md={6} sm={6} xs={12}>
               <Card inverse className="text-center">
                 <CardImg width="100%" src={imgUrl} alt="Card image cap" />
                 <CardImgOverlay>
@@ -191,8 +186,8 @@ const CardPage = () => {
       </Row>
 
       <Row>
-        {bgCards.map(({ color }) => (
-          <Col lg={4} md={6} sm={6} xs={12} className="mb-3">
+        {bgCards.map(({ color }, index) => (
+          <Col key={index} lg={4} md={6} sm={6} xs={12} className="mb-3">
             <Card inverse color={color}>
               <CardBody>
                 <CardTitle className="text-capitalize">
@@ -209,12 +204,13 @@ const CardPage = () => {
       </Row>
 
       <Row>
-        {gradientCards.map(({ color }) => (
-          <Col lg={4} md={6} sm={6} xs={12} className="mb-3">
+        {gradientCards.map(({ color }, index) => (
+          <Col key={index} lg={4} md={6} sm={6} xs={12} className="mb-3">
             <Card
               inverse
               className={`bg-gradient-${color} text-center`}
-              style={{ height: 200 }}>
+              style={{ height: 200 }}
+            >
               <CardBody className="d-flex flex-column flex-wrap justify-content-center align-items-center">
                 <CardTitle>Gradient {color} title</CardTitle>
                 <CardText>card text</CardText>

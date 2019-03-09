@@ -9,7 +9,8 @@ const TablePage = () => {
     <Page
       title="Tables"
       breadcrumbs={[{ name: 'tables', active: true }]}
-      className="TablePage">
+      className="TablePage"
+    >
       {tableTypes.map((tableType, index) => (
         <Row key={index}>
           <Col>
@@ -19,7 +20,7 @@ const TablePage = () => {
                 <Row>
                   <Col>
                     <Card body>
-                      <Table {...{ [tableType]: true }}>
+                      <Table {...{ [tableType || 'default']: true }}>
                         <thead>
                           <tr>
                             <th>#</th>
