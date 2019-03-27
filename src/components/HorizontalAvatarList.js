@@ -30,6 +30,8 @@ const HorizontalAvatarList = ({
                   zIndex: index,
                   border: '3px solid #fff',
                   marginLeft: !isFirstItem && -20,
+                  marginBottom: '20px',
+                  marginTop:'20px'
                 }}
               />
 
