@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "https://reduction-admin.github.io/react-reduction/static/media/background_1920-6.1e0eb550.jpg"
   },
   {
-    "revision": "40ab96f5610d40468d70",
+    "revision": "87aa2907335d8115d1b1",
     "url": "https://reduction-admin.github.io/react-reduction/static/css/main.85b1199a.chunk.css"
   },
   {
@@ -72,8 +72,8 @@ self.__precacheManifest = [
     "url": "https://reduction-admin.github.io/react-reduction/static/media/background_1920-5.1d98ff2e.jpg"
   },
   {
-    "revision": "40ab96f5610d40468d70",
-    "url": "https://reduction-admin.github.io/react-reduction/static/js/main.580b3757.chunk.js"
+    "revision": "87aa2907335d8115d1b1",
+    "url": "https://reduction-admin.github.io/react-reduction/static/js/main.d2650b14.chunk.js"
   },
   {
     "revision": "abf47fc19906e17185a37765e7594ee0",
@@ -140,7 +140,7 @@ self.__precacheManifest = [
     "url": "https://reduction-admin.github.io/react-reduction/static/media/100_14.595b8cbd.jpg"
   },
   {
-    "revision": "5a71b3767a5e965d7144730c916d8449",
+    "revision": "1de274d7fa1466523adc9f2f846ebe2d",
     "url": "https://reduction-admin.github.io/react-reduction/index.html"
   }
 ];
