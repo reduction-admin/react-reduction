@@ -1,5 +1,6 @@
 // page
 .cr-page {
+  min-height: 100vh;
   &__header {
     @include media-breakpoint-down(sm) {
       flex-direction: column;
@@ -14,7 +15,7 @@
     @include media-breakpoint-down(sm) {
       margin-bottom: 0;
     }
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     margin-bottom: 1rem;
   }
 
@@ -25,12 +26,13 @@
     align-self: flex-end;
     padding: 0;
     text-transform: capitalize;
-    background: theme-color("light");
+    background: theme-color('light');
   }
 
   .row {
     // stylelint-disable-next-line
-    .col, > [class^="col-"] {
+    .col,
+    > [class^='col-'] {
       margin-bottom: 1rem;
     }
   }
