@@ -1,28 +1,29 @@
 import { STATE_LOGIN, STATE_SIGNUP } from 'components/AuthForm';
 import GAListener from 'components/GAListener';
 import { EmptyLayout, LayoutRoute, MainLayout } from 'components/Layout';
-import AlertPage from 'pages/AlertPage';
-import AuthModalPage from 'pages/AuthModalPage';
+import PageSpinner from 'components/PageSpinner';
 import AuthPage from 'pages/AuthPage';
-import BadgePage from 'pages/BadgePage';
-import ButtonGroupPage from 'pages/ButtonGroupPage';
-import ButtonPage from 'pages/ButtonPage';
-import CardPage from 'pages/CardPage';
-import ChartPage from 'pages/ChartPage';
-// pages
-import DashboardPage from 'pages/DashboardPage';
-import DropdownPage from 'pages/DropdownPage';
-import FormPage from 'pages/FormPage';
-import InputGroupPage from 'pages/InputGroupPage';
-import ModalPage from 'pages/ModalPage';
-import ProgressPage from 'pages/ProgressPage';
-import TablePage from 'pages/TablePage';
-import TypographyPage from 'pages/TypographyPage';
-import WidgetPage from 'pages/WidgetPage';
 import React from 'react';
 import componentQueries from 'react-component-queries';
-import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './styles/reduction.scss';
+
+const AlertPage = React.lazy(() => import('pages/AlertPage'));
+const AuthModalPage = React.lazy(() => import('pages/AuthModalPage'));
+const BadgePage = React.lazy(() => import('pages/BadgePage'));
+const ButtonGroupPage = React.lazy(() => import('pages/ButtonGroupPage'));
+const ButtonPage = React.lazy(() => import('pages/ButtonPage'));
+const CardPage = React.lazy(() => import('pages/CardPage'));
+const ChartPage = React.lazy(() => import('pages/ChartPage'));
+const DashboardPage = React.lazy(() => import('pages/DashboardPage'));
+const DropdownPage = React.lazy(() => import('pages/DropdownPage'));
+const FormPage = React.lazy(() => import('pages/FormPage'));
+const InputGroupPage = React.lazy(() => import('pages/InputGroupPage'));
+const ModalPage = React.lazy(() => import('pages/ModalPage'));
+const ProgressPage = React.lazy(() => import('pages/ProgressPage'));
+const TablePage = React.lazy(() => import('pages/TablePage'));
+const TypographyPage = React.lazy(() => import('pages/TypographyPage'));
+const WidgetPage = React.lazy(() => import('pages/WidgetPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -50,108 +51,31 @@ class App extends React.Component {
                 <AuthPage {...props} authState={STATE_SIGNUP} />
               )}
             />
-            <LayoutRoute
-              exact
-              path="/login-modal"
-              layout={MainLayout}
-              component={AuthModalPage}
-            />
-            <LayoutRoute
-              exact
-              path="/"
-              layout={MainLayout}
-              component={DashboardPage}
-            />
-            <LayoutRoute
-              exact
-              path="/buttons"
-              layout={MainLayout}
-              component={ButtonPage}
-            />
-            <LayoutRoute
-              exact
-              path="/cards"
-              layout={MainLayout}
-              component={CardPage}
-            />
-            <LayoutRoute
-              exact
-              path="/widgets"
-              layout={MainLayout}
-              component={WidgetPage}
-            />
-            <LayoutRoute
-              exact
-              path="/typography"
-              layout={MainLayout}
-              component={TypographyPage}
-            />
-            <LayoutRoute
-              exact
-              path="/alerts"
-              layout={MainLayout}
-              component={AlertPage}
-            />
-            <LayoutRoute
-              exact
-              path="/tables"
-              layout={MainLayout}
-              component={TablePage}
-            />
-            <LayoutRoute
-              exact
-              path="/badges"
-              layout={MainLayout}
-              component={BadgePage}
-            />
-            <LayoutRoute
-              exact
-              path="/button-groups"
-              layout={MainLayout}
-              component={ButtonGroupPage}
-            />
-            <LayoutRoute
-              exact
-              path="/dropdowns"
-              layout={MainLayout}
-              component={DropdownPage}
-            />
-            <LayoutRoute
-              exact
-              path="/progress"
-              layout={MainLayout}
-              component={ProgressPage}
-            />
-            <LayoutRoute
-              exact
-              path="/modals"
-              layout={MainLayout}
-              component={ModalPage}
-            />
-            <LayoutRoute
-              exact
-              path="/forms"
-              layout={MainLayout}
-              component={FormPage}
-            />
-            <LayoutRoute
-              exact
-              path="/input-groups"
-              layout={MainLayout}
-              component={InputGroupPage}
-            />
-            <LayoutRoute
-              exact
-              path="/charts"
-              layout={MainLayout}
-              component={ChartPage}
-            />
-            <LayoutRoute
-              exact
-              path="/register"
-              layout={MainLayout}
-              component={AuthPage}
-            />
+
+            <MainLayout breakpoint={this.props.breakpoint}>
+              <React.Suspense fallback={<PageSpinner />}>
+                <Route exact path="/" component={DashboardPage} />
+                <Route exact path="/login-modal" component={AuthModalPage} />
+                <Route exact path="/buttons" component={ButtonPage} />
+                <Route exact path="/cards" component={CardPage} />
+                <Route exact path="/widgets" component={WidgetPage} />
+                <Route exact path="/typography" component={TypographyPage} />
+                <Route exact path="/alerts" component={AlertPage} />
+                <Route exact path="/tables" component={TablePage} />
+                <Route exact path="/badges" component={BadgePage} />
+                <Route
+                  exact
+                  path="/button-groups"
+                  component={ButtonGroupPage}
+                />
+                <Route exact path="/dropdowns" component={DropdownPage} />
+                <Route exact path="/progress" component={ProgressPage} />
+                <Route exact path="/modals" component={ModalPage} />
+                <Route exact path="/forms" component={FormPage} />
+                <Route exact path="/input-groups" component={InputGroupPage} />
+                <Route exact path="/charts" component={ChartPage} />
+              </React.Suspense>
+            </MainLayout>
             <Redirect to="/" />
           </Switch>
         </GAListener>
