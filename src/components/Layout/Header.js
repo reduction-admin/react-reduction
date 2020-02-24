@@ -86,7 +86,7 @@ class Header extends React.Component {
           </Button>
         </Nav>
         <Nav navbar>
-          <SearchInput />
+          {/* <SearchInput /> */}
         </Nav>
 
         <Nav navbar className={bem.e('nav-right')}>
@@ -141,7 +141,7 @@ class Header extends React.Component {
                   className="border-light"
                 >
                   <ListGroup flush>
-                    <ListGroupItem tag="button" action className="border-light">
+                    {/* <ListGroupItem tag="button" action className="border-light">
                       <MdPersonPin /> Profile
                     </ListGroupItem>
                     <ListGroupItem tag="button" action className="border-light">
@@ -149,7 +149,7 @@ class Header extends React.Component {
                     </ListGroupItem>
                     <ListGroupItem tag="button" action className="border-light">
                       <MdMessage /> Messages
-                    </ListGroupItem>
+                    </ListGroupItem> */}
                     <ListGroupItem tag="button" action className="border-light">
                       <MdSettingsApplications /> Settings
                     </ListGroupItem>

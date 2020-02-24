@@ -1,5 +1,5 @@
 import logo200Image from 'assets/img/logo/logo_200.png';
-import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
+import sidebarBgImage from 'assets/img/sidebar/rsz_1sidebar-4.jpg';
 import SourceLink from 'components/SourceLink';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
@@ -43,42 +43,42 @@ const sidebarBackground = {
   backgroundRepeat: 'no-repeat',
 };
 
-const navComponents = [
-  { to: '/buttons', name: 'buttons', exact: false, Icon: MdRadioButtonChecked },
-  {
-    to: '/button-groups',
-    name: 'button groups',
-    exact: false,
-    Icon: MdGroupWork,
-  },
-  { to: '/forms', name: 'forms', exact: false, Icon: MdChromeReaderMode },
-  { to: '/input-groups', name: 'input groups', exact: false, Icon: MdViewList },
-  {
-    to: '/dropdowns',
-    name: 'dropdowns',
-    exact: false,
-    Icon: MdArrowDropDownCircle,
-  },
-  { to: '/badges', name: 'badges', exact: false, Icon: MdStar },
-  { to: '/alerts', name: 'alerts', exact: false, Icon: MdNotificationsActive },
-  { to: '/progress', name: 'progress', exact: false, Icon: MdBrush },
-  { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
-];
+// const navComponents = [
+//   { to: '/buttons', name: 'buttons', exact: false, Icon: MdRadioButtonChecked },
+//   {
+//     to: '/button-groups',
+//     name: 'button groups',
+//     exact: false,
+//     Icon: MdGroupWork,
+//   },
+//   { to: '/forms', name: 'forms', exact: false, Icon: MdChromeReaderMode },
+//   { to: '/input-groups', name: 'input groups', exact: false, Icon: MdViewList },
+//   {
+//     to: '/dropdowns',
+//     name: 'dropdowns',
+//     exact: false,
+//     Icon: MdArrowDropDownCircle,
+//   },
+//   { to: '/badges', name: 'badges', exact: false, Icon: MdStar },
+//   { to: '/alerts', name: 'alerts', exact: false, Icon: MdNotificationsActive },
+//   { to: '/progress', name: 'progress', exact: false, Icon: MdBrush },
+//   { to: '/modals', name: 'modals', exact: false, Icon: MdViewDay },
+// ];
 
-const navContents = [
-  { to: '/typography', name: 'typography', exact: false, Icon: MdTextFields },
-  { to: '/tables', name: 'tables', exact: false, Icon: MdBorderAll },
-];
+// const navContents = [
+//   { to: '/typography', name: 'typography', exact: false, Icon: MdTextFields },
+//   { to: '/tables', name: 'tables', exact: false, Icon: MdBorderAll },
+// ];
 
-const pageContents = [
-  { to: '/login', name: 'login / signup', exact: false, Icon: MdAccountCircle },
-  {
-    to: '/login-modal',
-    name: 'login modal',
-    exact: false,
-    Icon: MdViewCarousel,
-  },
-];
+// const pageContents = [
+//   { to: '/login', name: 'login / signup', exact: false, Icon: MdAccountCircle },
+//   {
+//     to: '/login-modal',
+//     name: 'login modal',
+//     exact: false,
+//     Icon: MdViewCarousel,
+//   },
+// ];
 
 const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
@@ -121,7 +121,7 @@ class Sidebar extends React.Component {
                 alt=""
               />
               <span className="text-white">
-                Reduction <FaGithub />
+                MyTeslaStats 
               </span>
             </SourceLink>
           </Navbar>
@@ -142,7 +142,7 @@ class Sidebar extends React.Component {
               </NavItem>
             ))}
 
-            <NavItem
+            {/* <NavItem
               className={bem.e('nav-item')}
               onClick={this.handleClick('Components')}
             >
@@ -260,7 +260,7 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-            </Collapse>
+            </Collapse> */}
           </Nav>
         </div>
       </aside>
