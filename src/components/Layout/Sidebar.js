@@ -80,11 +80,12 @@ const sidebarBackground = {
 //   },
 // ];
 
+//routing for the sidebar links
 const navItems = [
-  { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
-  { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
-  { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
-  { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
+  { to: '/', name: 'Home', exact: true, Icon: MdDashboard },
+  { to: '/cards', name: 'trips', exact: false, Icon: MdWeb },
+  { to: '/charts', name: 'Charges', exact: false, Icon: MdInsertChart },
+  { to: '/widgets', name: 'settings', exact: false, Icon: MdWidgets },
 ];
 
 const bem = bn.create('sidebar');
