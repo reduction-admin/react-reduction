@@ -25,6 +25,9 @@ import {
   MdViewList,
   MdWeb,
   MdWidgets,
+  MdAttachMoney,
+  MdDirectionsCar,
+  MdSettingsApplications
 } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import {
@@ -83,9 +86,9 @@ const sidebarBackground = {
 //routing for the sidebar links
 const navItems = [
   { to: '/', name: 'Home', exact: true, Icon: MdDashboard },
-  { to: '/cards', name: 'trips', exact: false, Icon: MdWeb },
-  { to: '/charts', name: 'Charges', exact: false, Icon: MdInsertChart },
-  { to: '/widgets', name: 'settings', exact: false, Icon: MdWidgets },
+  { to: '/trips', name: 'trips', exact: false, Icon: MdDirectionsCar },
+  { to: '/charges', name: 'Charges', exact: false, Icon: MdAttachMoney },
+  { to: '/settings', name: 'settings', exact: false, Icon: MdSettingsApplications },
 ];
 
 const bem = bn.create('sidebar');
