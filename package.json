@@ -2,7 +2,7 @@
   "name": "react-reduction",
   "version": "1.1.0",
   "private": false,
-  "homepage": "https://reduction-admin.github.io/react-reduction",
+  "homepage": "http://hellboy95.github.io/react-reduction",
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "4.3.1",
@@ -40,9 +40,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "serve": "serve -s build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
