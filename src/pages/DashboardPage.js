@@ -28,6 +28,7 @@ import {
   MdThumbUp,
 } from 'react-icons/md';
 import InfiniteCalendar from 'react-infinite-calendar';
+import axios from 'axios'
 import {
   Badge,
   Button,
@@ -51,71 +52,117 @@ const lastWeek = new Date(
   today.getDate() - 7,
 );
 
+var DuraSum='' ;
+var count = 0;
 class DashboardPage extends React.Component {
+
+  constructor(props) {
+    var dur = '';
+    super(props);
+    this.state = {
+      PatData: [],
+      dur: '',
+      concount: 0
+    };
+
+  }
+
+  Dsum(duration,connection_count){
+    this.setState({
+      dur: duration,
+      concount: connection_count
+    })
+  }
   componentDidMount() {
     // this is needed, because InfiniteCalendar forces window scroll
     window.scrollTo(0, 0);
-  }
+  
+    fetch("https://pv9z9cd9b0.execute-api.us-west-1.amazonaws.com/Prod/getdata", {
+      "method": "GET"
+    })
+    .then(response => response.json())
+    .then(response => {
+      this.setState({
+        PatData: response
+      })
+      this.state.PatData.map(object => {
+        DuraSum = +DuraSum + +object.Duration;
+        count++;
+      })
+      this.Dsum(DuraSum,count);
 
+    })
+    .catch(err => { console.log(err); 
+    });
+
+   
+  }
   render() {
     const primaryColor = getColor('primary');
-    const secondaryColor = getColor('secondary');
-
+    const secondaryColor = getColor('secondary'); 
+    console.log("Dur", this.state.dur);
+    const pd = this.state.PatData;
+    
     return (
+
+      
       <Page
         className="DashboardPage"
-        title="Dashboard"
-        breadcrumbs={[{ name: 'Dashboard', active: true }]}
+        title="Hive Dashboard"
+        // breadcrumbs={[{ name: 'Dashboard', active: false }]}
       >
         <Row>
+
+        
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="Total Profit"
-              subtitle="This month"
-              number="9.8k"
+              title="Total Duration Connected"
+              subtitle="Today"
+              number={this.state.dur}
               color="secondary"
-              progress={{
+              progress=
+              {{
                 value: 75,
-                label: 'Last month',
+                // label: 'Last month',
               }}
             />
           </Col>
 
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="Monthly Visitors"
-              subtitle="This month"
-              number="5,400"
+              title="IV Disconneted"
+              subtitle="Today"
+              number={this.state.concount}
               color="secondary"
               progress={{
                 value: 45,
-                label: 'Last month',
+                // label: 'Last month',
               }}
             />
           </Col>
 
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="New Users"
-              subtitle="This month"
-              number="3,400"
+              title="Active User Time"
+              subtitle="Today"
+              number=""
               color="secondary"
               progress={{
                 value: 90,
-                label: 'Last month',
+                // label: 'Last month',
               }}
             />
           </Col>
 
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="Bounce Rate"
-              subtitle="This month"
-              number="38%"
+              title="Drop Rate"
+              subtitle="Today"
+              number=""
               color="secondary"
               progress={{
                 value: 60,
-                label: 'Last month',
+                // label: 'Last month',
               }}
             />
           </Col>
@@ -125,7 +172,7 @@ class DashboardPage extends React.Component {
           <Col lg="8" md="12" sm="12" xs="12">
             <Card>
               <CardHeader>
-                Total Revenue{' '}
+                Total Conectiveity{' '}
                 <small className="text-muted text-capitalize">This year</small>
               </CardHeader>
               <CardBody>
@@ -162,7 +209,7 @@ class DashboardPage extends React.Component {
           </Col>
         </Row>
 
-        <CardGroup style={{ marginBottom: '1rem' }}>
+        {/* <CardGroup style={{ marginBottom: '1rem' }}>
           <IconWidget
             bgColor="white"
             inverse={false}
@@ -184,9 +231,9 @@ class DashboardPage extends React.Component {
             title="30+ Shares"
             subtitle="New Shares"
           />
-        </CardGroup>
+        </CardGroup> */}
 
-        <Row>
+        {/* <Row>
           <Col md="6" sm="12" xs="12">
             <Card>
               <CardHeader>New Products</CardHeader>
@@ -223,9 +270,9 @@ class DashboardPage extends React.Component {
               </CardBody>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
 
-        <Row>
+        {/* <Row>
           <Col lg={4} md={4} sm={12} xs={12}>
             <Card>
               <Line
@@ -308,9 +355,9 @@ class DashboardPage extends React.Component {
               </CardBody>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
 
-        <Row>
+        {/* <Row>
           <Col lg="4" md="12" sm="12" xs="12">
             <InfiniteCalendar
               selected={today}
@@ -400,10 +447,36 @@ class DashboardPage extends React.Component {
 
           <Col lg="4" md="12" sm="12" xs="12">
             <TodosCard todos={todosData} />
-          </Col>
+          </Col> */}
+        <Row>
+          <table className="table table-striped">
+              <thead>
+                  <tr>
+                      <th>TimeStamp</th>
+                      <th>Connection_Start</th>
+                      <th>Connection_Stop</th>
+                      <th>Duration</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {Array.isArray(pd) && pd.map(friend => {
+                      return <tr key={friend.ts}>
+                          <td>{friend.ts}</td>
+                          <td>{friend.Connection_Start}</td>
+                          <td>{friend.Disconnected_At}</td>
+                          <td>{friend.Duration}</td>
+                      </tr>
+                  })}
+              </tbody>
+          </table>
+
         </Row>
       </Page>
     );
   }
 }
+
+
+
+
 export default DashboardPage;
