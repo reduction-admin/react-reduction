@@ -116,9 +116,9 @@ class DashboardPage extends React.Component {
         
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="Total Duration Connected"
+              title="Total Duration Connected (Minutes)"
               subtitle="Today"
-              number={this.state.dur}
+              number={Math.trunc(this.state.dur/60)}
               color="secondary"
               progress=
               {{
@@ -130,7 +130,7 @@ class DashboardPage extends React.Component {
 
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="IV Disconneted"
+              title="Number of Medication Sessions"
               subtitle="Today"
               number={this.state.concount}
               color="secondary"
@@ -143,9 +143,9 @@ class DashboardPage extends React.Component {
 
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="Active User Time"
+              title="Estimated Drug Intake"
               subtitle="Today"
-              number=""
+              number=" 500 ml"
               color="secondary"
               progress={{
                 value: 90,
@@ -156,9 +156,9 @@ class DashboardPage extends React.Component {
 
           <Col lg={3} md={6} sm={6} xs={12}>
             <NumberWidget
-              title="Drop Rate"
+              title="Treatment Length"
               subtitle="Today"
-              number=""
+              number=" 46 Days"
               color="secondary"
               progress={{
                 value: 60,
@@ -172,7 +172,7 @@ class DashboardPage extends React.Component {
           <Col lg="8" md="12" sm="12" xs="12">
             <Card>
               <CardHeader>
-                Total Conectiveity{' '}
+                Drug Adherence Chart{' '}
                 <small className="text-muted text-capitalize">This year</small>
               </CardHeader>
               <CardBody>
@@ -456,6 +456,7 @@ class DashboardPage extends React.Component {
                       <th>Connection_Start</th>
                       <th>Connection_Stop</th>
                       <th>Duration</th>
+                      <th>Time Elapsed</th>
                   </tr>
               </thead>
               <tbody>
@@ -465,6 +466,7 @@ class DashboardPage extends React.Component {
                           <td>{friend.Connection_Start}</td>
                           <td>{friend.Disconnected_At}</td>
                           <td>{friend.Duration}</td>
+                          <td>{friend.Time_Elapsed}</td>
                       </tr>
                   })}
               </tbody>
