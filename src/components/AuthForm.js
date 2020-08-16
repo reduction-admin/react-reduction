@@ -1,9 +1,19 @@
 import logo200Image from 'assets/img/logo/logo_200.png';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label, UncontrolledAlert } from 'reactstrap';
+import { Redirect } from 'react-router';
 
 class AuthForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+    username:'',
+    password:'',
+    validateLoginStatus: '',
+    validateLoginResponse:{}
+    }
+   }
   get isLogin() {
     return this.props.authState === STATE_LOGIN;
   }
@@ -11,15 +21,57 @@ class AuthForm extends React.Component {
   get isSignup() {
     return this.props.authState === STATE_SIGNUP;
   }
+  
+ 
 
   changeAuthState = authState => event => {
     event.preventDefault();
-
+    // {console.log("uerma",this.state.username)}
     this.props.onChangeAuthState(authState);
+    
+   
   };
 
   handleSubmit = event => {
     event.preventDefault();
+
+    
+    if(this.props.authState=='LOGIN'){
+      
+      console.log("Inside validate function");
+        fetch('https://spc89vwj89.execute-api.us-west-1.amazonaws.com/Production', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            pathParameters:{
+              username: this.state.username,
+              password: this.state.password,
+            }
+          })
+        })
+        .then(response => response.json())
+        .then(response => {
+          this.setState({
+            validateLoginResponse: response
+          })
+          this.state.validateLoginStatus = this.state.validateLoginResponse.statusCode;
+         
+          if(this.state.validateLoginStatus==200){
+            console.log("inside 200");
+            this.props.history.push('/');
+          }
+          else{
+            // alert(this.state.username + 'is not a valid username!');
+          }
+
+          
+        })
+        .catch(err => { console.log(err); 
+        });
+    }
   };
 
   renderButtonText() {
@@ -36,6 +88,9 @@ class AuthForm extends React.Component {
     return buttonText;
   }
 
+  
+  
+
   render() {
     const {
       showLogo,
@@ -48,6 +103,9 @@ class AuthForm extends React.Component {
       children,
       onLogoClick,
     } = this.props;
+
+    
+    
 
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -64,11 +122,11 @@ class AuthForm extends React.Component {
         )}
         <FormGroup>
           <Label for={usernameLabel}>{usernameLabel}</Label>
-          <Input {...usernameInputProps} />
+          <Input onChange={e => this.setState({ username: e.target.value })} {...usernameInputProps} />
         </FormGroup>
         <FormGroup>
           <Label for={passwordLabel}>{passwordLabel}</Label>
-          <Input {...passwordInputProps} />
+          <Input onChange={e => this.setState({ password: e.target.value })} {...passwordInputProps } />
         </FormGroup>
         {this.isSignup && (
           <FormGroup>
@@ -82,6 +140,9 @@ class AuthForm extends React.Component {
             {this.isSignup ? 'Agree the terms and policy' : 'Remember me'}
           </Label>
         </FormGroup>
+        {this.state.validateLoginStatus==500 ? (
+            <UncontrolledAlert color="secondary">Invalid Login! User is not registered! </UncontrolledAlert>
+          ) : null }
         <hr />
         <Button
           size="lg"
@@ -89,6 +150,7 @@ class AuthForm extends React.Component {
           block
           onClick={this.handleSubmit}>
           {this.renderButtonText()}
+          
         </Button>
 
         <div className="text-center pt-1">
@@ -107,11 +169,13 @@ class AuthForm extends React.Component {
         </div>
 
         {children}
+       
       </Form>
     );
   }
 }
 
+// export const validationStatus = this.props.validateLoginStatus;
 export const STATE_LOGIN = 'LOGIN';
 export const STATE_SIGNUP = 'SIGNUP';
 

@@ -29,6 +29,7 @@ class AuthPage extends React.Component {
               authState={this.props.authState}
               onChangeAuthState={this.handleAuthState}
               onLogoClick={this.handleLogoClick}
+              history = {this.props.history}
             />
           </Card>
         </Col>
