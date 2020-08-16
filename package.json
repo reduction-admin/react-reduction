@@ -2,7 +2,7 @@
   "name": "react-reduction",
   "version": "1.1.0",
   "private": false,
-  "homepage": "http://hellboy95.github.io/react-reduction",
+  "homepage": "http://hellboy95.github.io/react-reduction/login",
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "4.3.1",

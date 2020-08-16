@@ -1,4 +1,4 @@
-import logo200Image from 'assets/img/logo/logo_200.png';
+import logo200Image from 'assets/img/logo/hive-logo.png';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Form, FormGroup, Input, Label, UncontrolledAlert } from 'reactstrap';
@@ -102,6 +102,16 @@ class AuthForm extends React.Component {
       confirmPasswordInputProps,
       children,
       onLogoClick,
+      FullNameLabel,
+      FullNameInputProps,
+      DoctorNameLabel,
+      DoctorNameInputProps,
+      DoctorIdLabel,
+      DoctorIdInputProps,
+      PatientIdLabel,
+      PatienIdInputProps,
+      DeviceIdLabel,
+      DeviceIdInputProps
     } = this.props;
 
     
@@ -129,10 +139,32 @@ class AuthForm extends React.Component {
           <Input onChange={e => this.setState({ password: e.target.value })} {...passwordInputProps } />
         </FormGroup>
         {this.isSignup && (
+          <>
           <FormGroup>
             <Label for={confirmPasswordLabel}>{confirmPasswordLabel}</Label>
             <Input {...confirmPasswordInputProps} />
           </FormGroup>
+          <FormGroup>
+          <Label for={FullNameLabel}>{FullNameLabel}</Label>
+          <Input {...FullNameInputProps} />
+          </FormGroup>
+          <FormGroup>
+          <Label for={DoctorNameLabel}>{DoctorNameLabel}</Label>
+          <Input {...DoctorNameInputProps} />
+          </FormGroup>
+          <FormGroup>
+          <Label for={DoctorIdLabel}>{DoctorIdLabel}</Label>
+          <Input {...DoctorIdInputProps} />
+        </FormGroup>
+        <FormGroup>
+          <Label for={PatientIdLabel}>{PatientIdLabel}</Label>
+          <Input {...PatienIdInputProps} />
+        </FormGroup>
+        <FormGroup>
+          <Label for={DeviceIdLabel}>{DeviceIdLabel}</Label>
+          <Input {...DeviceIdInputProps} />
+        </FormGroup>
+        </>
         )}
         <FormGroup check>
           <Label check>
@@ -189,6 +221,16 @@ AuthForm.propTypes = {
   confirmPasswordLabel: PropTypes.string,
   confirmPasswordInputProps: PropTypes.object,
   onLogoClick: PropTypes.func,
+  FullNameLabel: PropTypes.string,
+  FullNameInputProps: PropTypes.object,
+  DoctorNameLabel: PropTypes.string,
+  DoctorNameInputProps: PropTypes.object,
+  DoctorIdLabel: PropTypes.string,
+  DoctorIdInputProps: PropTypes.object,
+  PatientIdLabel: PropTypes.string,
+  PatienIdInputProps: PropTypes.object,
+  DeviceIdLabel: PropTypes.string,
+  DeviceIdInputProps: PropTypes.object,
 };
 
 AuthForm.defaultProps = {
@@ -209,6 +251,32 @@ AuthForm.defaultProps = {
     type: 'password',
     placeholder: 'confirm your password',
   },
+  FullNameLabel: 'Patient Full Name',
+  FullNameInputProps: {
+    type: 'string',
+    placeholder: 'Your full name',
+  },
+  DoctorNameLabel: 'Doctor Name',
+  DoctorNameInputProps: {
+    type: 'string',
+    placeholder: 'Doctors name',
+  },
+  DoctorIdLabel: 'Doctor ID',
+  DoctorIdInputProps: {
+    type: 'string',
+    placeholder: 'Doctors ID',
+  },
+  PatientIdLabel: 'Patient ID',
+  PatienIdInputProps: {
+    type: 'string',
+    placeholder: 'Patient ID',
+  },
+  DeviceIdLabel: 'HIVE Device ID',
+  DeviceIdInputProps: {
+    type: 'string',
+    placeholder: 'HIVE device ID',
+  },
+
   onLogoClick: () => {},
 };
 
