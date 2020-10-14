@@ -39,15 +39,12 @@ const sidebarBackground = {
   backgroundRepeat: 'no-repeat',
 };
 
-const pageContents = [
-  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes },
-];
-
 const navItems1 = [
   { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
   { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
   { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
+  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes }
 ];
 
 
@@ -105,23 +102,6 @@ class Sidebar extends React.Component {
                 </BSNavLink>
               </NavItem>
             ))}
-            <Collapse isOpen={this.state.isOpenComponents}>
-              {pageContents.map(({ to, name, exact, Icon }, index) => (
-                <NavItem key={index} className={bem.e('nav-item')}>
-                  <BSNavLink
-                    id={`navItem-${name}-${index}`}
-                    className="text-uppercase"
-                    tag={NavLink}
-                    to={to}
-                    activeClassName="active"
-                    exact={exact}
-                  >
-                    <Icon className={bem.e('nav-item-icon')} />
-                    <span className="">{name}</span>
-                  </BSNavLink>
-                </NavItem>
-              ))}
-            </Collapse>
           </Nav>
         </div>
       </aside>
