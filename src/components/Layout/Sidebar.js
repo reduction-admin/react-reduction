@@ -41,11 +41,13 @@ const navItems1 = [
 ];
 
 const navItems2 = [
+  { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
   { to: '/forms', name: 'req-certificate', exact: true, Icon: FiGitPullRequest },
   { to: '/', name: 'gpa info', exact: false, Icon: MdPoll },
-  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
+  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
+  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes },
 ];
 
 
@@ -88,7 +90,7 @@ class Sidebar extends React.Component {
             </SourceLink>
           </Navbar>
           <Nav vertical>
-            {navItems1.map(({ to, name, exact, Icon }, index) => (
+            {navItems2.map(({ to, name, exact, Icon }, index) => (
               <NavItem key={index} className={bem.e('nav-item')}>
                 <BSNavLink
                   id={`navItem-${name}-${index}`}
@@ -103,40 +105,6 @@ class Sidebar extends React.Component {
                 </BSNavLink>
               </NavItem>
             ))}
-            <Collapse isOpen={this.state.isOpenComponents}>
-              {navItems2.map(({ to, name, exact, Icon }, index) => (
-                <NavItem key={index} className={bem.e('nav-item')}>
-                  <BSNavLink
-                    id={`navItem-${name}-${index}`}
-                    className="text-uppercase"
-                    tag={NavLink}
-                    to={to}
-                    activeClassName="active"
-                    exact={exact}
-                  >
-                    <Icon className={bem.e('nav-item-icon')} />
-                    <span className="">{name}</span>
-                  </BSNavLink>
-                </NavItem>
-              ))}
-            </Collapse>
-            <Collapse isOpen={this.state.isOpenComponents}>
-              {pageContents.map(({ to, name, exact, Icon }, index) => (
-                <NavItem key={index} className={bem.e('nav-item')}>
-                  <BSNavLink
-                    id={`navItem-${name}-${index}`}
-                    className="text-uppercase"
-                    tag={NavLink}
-                    to={to}
-                    activeClassName="active"
-                    exact={exact}
-                  >
-                    <Icon className={bem.e('nav-item-icon')} />
-                    <span className="">{name}</span>
-                  </BSNavLink>
-                </NavItem>
-              ))}
-            </Collapse>
           </Nav>
         </div>
       </aside>
