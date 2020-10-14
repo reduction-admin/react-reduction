@@ -46,8 +46,8 @@ const pageContents = [
 const navItems1 = [
   { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
-  { to: '/', name: 'req-certificate', exact: true, Icon: FiGitPullRequest },
-  { to: '/', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
+  { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
+  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
 ];
 
 
