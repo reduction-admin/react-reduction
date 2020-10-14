@@ -70,7 +70,6 @@ class App extends React.Component {
                 <Route exact path="/forms" component={FormPage} />
                 <Route exact path="/input-groups" component={InputGroupPage} />
                 <Route exact path="/charts" component={ChartPage} />
-                <Route exact path="/charts" component={ChartPage} />
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />
