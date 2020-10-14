@@ -38,11 +38,14 @@ const pageContents = [
 
 const navItems1 = [
   { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
+];
+
+const navItems2 = [
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
   { to: '/', name: 'req-certificate', exact: true, Icon: FiGitPullRequest },
   { to: '/', name: 'gpa info', exact: false, Icon: MdPoll },
-  { to: '/', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
+  { to: '/forms', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
 ];
 
 
@@ -101,6 +104,23 @@ class Sidebar extends React.Component {
               </NavItem>
             ))}
             <Collapse isOpen={this.state.isOpenComponents}>
+              {navItems2.map(({ to, name, exact, Icon }, index) => (
+                <NavItem key={index} className={bem.e('nav-item')}>
+                  <BSNavLink
+                    id={`navItem-${name}-${index}`}
+                    className="text-uppercase"
+                    tag={NavLink}
+                    to={to}
+                    activeClassName="active"
+                    exact={exact}
+                  >
+                    <Icon className={bem.e('nav-item-icon')} />
+                    <span className="">{name}</span>
+                  </BSNavLink>
+                </NavItem>
+              ))}
+            </Collapse>
+            <Collapse isOpen={this.state.isOpenComponents}>
               {pageContents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
@@ -125,3 +145,4 @@ class Sidebar extends React.Component {
 }
 
 export default Sidebar;
+
