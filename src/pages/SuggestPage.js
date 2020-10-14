@@ -72,6 +72,9 @@ const SuggestPage = () => {
               <option>Dr.Withoon Chunwachirasiri</option>
             </Input>
           </FormGroup>
+          <Label for="exampleSelect">Click for Submit Suggestion Form :</Label>
+          <br></br>
+          <Button>Submit</Button>
         </Form>
         </CardBody>
       </Card>
