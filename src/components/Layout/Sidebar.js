@@ -32,22 +32,15 @@ const sidebarBackground = {
   backgroundRepeat: 'no-repeat',
 };
 
-const pageContents = [
-  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes },
-];
 
 const navItems1 = [
   { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
-];
-
-const navItems2 = [
-  { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
-  { to: '/forms', name: 'req-certificate', exact: true, Icon: FiGitPullRequest },
+  { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
   { to: '/', name: 'gpa info', exact: false, Icon: MdPoll },
   { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
-  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes },
+  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes }
 ];
 
 
@@ -90,7 +83,7 @@ class Sidebar extends React.Component {
             </SourceLink>
           </Navbar>
           <Nav vertical>
-            {navItems2.map(({ to, name, exact, Icon }, index) => (
+            {navItems1.map(({ to, name, exact, Icon }, index) => (
               <NavItem key={index} className={bem.e('nav-item')}>
                 <BSNavLink
                   id={`navItem-${name}-${index}`}
