@@ -43,9 +43,9 @@ const navItems1 = [
 const navItems2 = [
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
-  { to: '/', name: 'req-certificate', exact: true, Icon: FiGitPullRequest },
+  { to: '/forms', name: 'req-certificate', exact: true, Icon: FiGitPullRequest },
   { to: '/', name: 'gpa info', exact: false, Icon: MdPoll },
-  { to: '/forms', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
+  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
 ];
 
 
