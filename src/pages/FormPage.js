@@ -52,8 +52,8 @@ const FormPage = () => {
                 <option>Bangkadi Campus</option>
               </Input>
             </FormGroup>
-            <Label for="exampleSelect">Step 4 : Click for Confirm Request --> </Label>
-            
+            <Label for="exampleSelect">Step 4 : Click for Submit Request </Label>
+            <br></br>
             <Button>Submit</Button>
           </Form>
         </CardBody>
