@@ -26,6 +26,7 @@ const SuggestPage = () => {
         <CardBody>
         <Form>
           <Label>{date.toString()}</Label>
+          <br></br>
           <FormGroup>
             <Label for="exampleText">Suggestion Sentence (You can specify up to 255 Characters.)</Label>
             <Input type="textarea" name="text" rows="10"/>
