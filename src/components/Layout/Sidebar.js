@@ -34,13 +34,13 @@ const sidebarBackground = {
 
 
 const navItems1 = [
-  { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
-  { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
-  { to: '/', name: 'course list', exact: false, Icon: MdViewList },
-  { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
-  { to: '/', name: 'gpa info', exact: false, Icon: MdPoll },
-  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
-  { to: '/', name: 'logout', exact: false, Icon: FaUserTimes }
+  { to: '/login', name: 'Login', exact: true, Icon: MdAccountCircle },
+  { to: '/forms', name: 'News-Board', exact: true, Icon: MdAccountCircle },
+  { to: '/course-class', name: 'Course-Class', exact: false, Icon: MdLocalLibrary },
+  { to: '/stu-search', name: 'Student Timetable', exact: false, Icon: MdViewList },
+  { to: '/ins-search', name: 'Instructor Timetable', exact: false, Icon: FiGitPullRequest },
+  { to: '/', name: 'Academic Calender', exact: false, Icon: FaUserTimes },
+  { to: '/', name: 'FAQs', exact: false, Icon: FaUserTimes },
 ];
 
 
