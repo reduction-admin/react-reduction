@@ -5,13 +5,15 @@ import React from 'react';
 import { 
   FaUserTimes 
 } from 'react-icons/fa';
-import { FiGitPullRequest } from 'react-icons/fi';
+import { FiGitPullRequest,FiChrome } from 'react-icons/fi';
 import {
   MdAccountCircle,
-  MdSentimentSatisfied,
+  MdAssignmentLate,
   MdViewList,
-  MdPoll,
-  MdLocalLibrary
+  MdStorage,
+  MdLocalLibrary,
+  MdBusinessCenter,
+  MdGroup
 } from 'react-icons/md';
 
 import { NavLink } from 'react-router-dom';
@@ -35,12 +37,12 @@ const sidebarBackground = {
 
 const navItems1 = [
   { to: '/login', name: 'Login', exact: true, Icon: MdAccountCircle },
-  { to: '/forms', name: 'News-Board', exact: true, Icon: MdAccountCircle },
+  { to: '/forms', name: 'News-Board', exact: true, Icon: FiChrome },
   { to: '/course-class', name: 'Course-Class', exact: false, Icon: MdLocalLibrary },
-  { to: '/stu-search', name: 'Student Timetable', exact: false, Icon: MdViewList },
-  { to: '/ins-search', name: 'Instructor Timetable', exact: false, Icon: FiGitPullRequest },
-  { to: '/', name: 'Academic Calender', exact: false, Icon: FaUserTimes },
-  { to: '/', name: 'FAQs', exact: false, Icon: FaUserTimes },
+  { to: '/stu-search', name: 'Student Timetable', exact: false, Icon: MdGroup },
+  { to: '/ins-search', name: 'Instructor Timetable', exact: false, Icon: MdBusinessCenter },
+  { to: '/', name: 'Academic Calender', exact: false, Icon: MdStorage },
+  { to: '/', name: 'FAQs', exact: false, Icon: MdAssignmentLate },
 ];
 
 
