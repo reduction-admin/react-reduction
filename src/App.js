@@ -32,6 +32,7 @@ const InsSearchPage = React.lazy(() => import('pages/InsSearchPage'));
 const NewsBoardPage = React.lazy(() => import('pages/NewsBoardPage'));
 const FAQsPage = React.lazy(() => import('pages/FAQsPage'));
 const AcaCalenderPage = React.lazy(() => import('pages/AcaCalenderPage'));
+const GPAPage = React.lazy(() => import('pages/GPAPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -86,6 +87,7 @@ class App extends React.Component {
                 <Route exact path="/news-board" component={NewsBoardPage}/>
                 <Route exact path="/faqs" component={FAQsPage}/>
                 <Route exact path="/aca-calender" component={AcaCalenderPage}/>
+                <Route exact path="/gpa" component={GPAPage}/>
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />
