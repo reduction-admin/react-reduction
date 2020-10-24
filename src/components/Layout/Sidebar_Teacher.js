@@ -40,7 +40,7 @@ const sidebarBackground = {
 };
 
 const navItems1 = [
-  { to: '/', name: 'profile', exact: true, Icon: MdAccountCircle },
+  { to: '/profile', name: 'profile', exact: true, Icon: MdAccountCircle },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
   { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
   { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
