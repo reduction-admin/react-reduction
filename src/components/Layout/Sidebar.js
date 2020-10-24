@@ -34,7 +34,8 @@ const sidebarBackground = {
 
 
 const navItems1 = [
-  { to: '/tables', name: 'profile', exact: true, Icon: MdAccountCircle },
+  { to: '/tables', name: 'TableTutorial', exact: true, Icon: MdAccountCircle },
+  { to: '/profiles', name: 'profile', exact: false, Icon: MdAccountCircle },
   { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
   { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
