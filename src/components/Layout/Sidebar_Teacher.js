@@ -2,10 +2,15 @@ import logo200Image from 'assets/img/logo/logo_200.png';
 import sidebarBgImage from 'assets/img/sidebar/sidebar-4.jpg';
 import SourceLink from 'components/SourceLink';
 import React from 'react';
+
 import { 
   FaUserTimes 
 } from 'react-icons/fa';
-import { FiGitPullRequest } from 'react-icons/fi';
+
+import {
+  FiGitPullRequest 
+} from 'react-icons/fi';
+
 import {
   MdAccountCircle,
   MdSentimentSatisfied,
@@ -14,16 +19,18 @@ import {
   MdLocalLibrary
 } from 'react-icons/md';
 
-import { NavLink } from 'react-router-dom';
+import { 
+  NavLink 
+} from 'react-router-dom';
 
 import {
-  // UncontrolledTooltip,
   Collapse,
   Nav,
   Navbar,
   NavItem,
   NavLink as BSNavLink,
 } from 'reactstrap';
+
 import bn from 'utils/bemnames';
 
 const sidebarBackground = {
@@ -32,15 +39,11 @@ const sidebarBackground = {
   backgroundRepeat: 'no-repeat',
 };
 
-
 const navItems1 = [
-  { to: '/tables', name: 'TableTutorial', exact: true, Icon: MdAccountCircle },
-  { to: '/profiles', name: 'profile', exact: false, Icon: MdAccountCircle },
-  { to: '/', name: 'enrollment', exact: false, Icon: MdLocalLibrary },
+  { to: '/profile', name: 'profile', exact: true, Icon: MdAccountCircle },
   { to: '/', name: 'course list', exact: false, Icon: MdViewList },
   { to: '/forms', name: 'req-certificate', exact: false, Icon: FiGitPullRequest },
-  { to: '/gpa', name: 'gpa info', exact: false, Icon: MdPoll },
-  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied },
+  { to: '/suggest', name: 'suggestion form', exact: false, Icon: MdSentimentSatisfied }
   { to: '/', name: 'logout', exact: false, Icon: FaUserTimes }
 ];
 
