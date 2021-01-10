@@ -2,7 +2,7 @@ import logo200Image from 'assets/img/logo/hive-logo.png';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Form, FormGroup, Input, Label, UncontrolledAlert } from 'reactstrap';
-import { Redirect } from 'react-router';
+
 
 class AuthForm extends React.Component {
   constructor(props){
@@ -11,7 +11,12 @@ class AuthForm extends React.Component {
     username:'',
     password:'',
     validateLoginStatus: '',
-    validateLoginResponse:{}
+    validateLoginResponse:{},
+    fullname:'',
+    doctorname:'',
+    doctorid: '',
+    patientid:'',
+    deviceid:''
     }
    }
   get isLogin() {
@@ -38,7 +43,7 @@ class AuthForm extends React.Component {
     
     if(this.props.authState=='LOGIN'){
       
-      console.log("Inside validate function");
+      console.log("Inside login function");
         fetch('https://spc89vwj89.execute-api.us-west-1.amazonaws.com/Production', {
           method: 'POST',
           headers: {
@@ -66,8 +71,46 @@ class AuthForm extends React.Component {
           else{
             // alert(this.state.username + 'is not a valid username!');
           }
+        })
+        .catch(err => { console.log(err); 
+        });
+    }else if(this.props.authState=='SIGNUP'){
 
-          
+      let registrationObject = {
+        User_Id : `USERNAME#${this.state.username}`,
+        Device_Id: `DEVICE#${this.state.deviceid}`,
+        User_Password: this.state.password,
+        User_Fullname: this.state.fullname,
+        Doctor_Name: this.state.doctorname,
+        Doctor_Id: this.state.doctorid,
+        Patient_Id: this.state.patientid
+      }
+    
+      console.log("Inside Registration function");
+        fetch('https://iky6jfqxu9.execute-api.us-west-1.amazonaws.com/Production/insertuser', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: JSON.stringify({
+            registrationObject
+          })
+        })
+        .then(response => response.json())
+        .then(response => {
+          this.setState({
+            validateLoginResponse: response
+          })
+          this.state.validateLoginStatus = this.state.validateLoginResponse.statusCode;
+         
+          if(this.state.validateLoginStatus==200){
+            console.log("inside 200");
+            this.props.history.push('/');
+          }
+          else{
+            // alert(this.state.username + 'is not a valid username!');
+          }
         })
         .catch(err => { console.log(err); 
         });
@@ -146,23 +189,23 @@ class AuthForm extends React.Component {
           </FormGroup>
           <FormGroup>
           <Label for={FullNameLabel}>{FullNameLabel}</Label>
-          <Input {...FullNameInputProps} />
+          <Input onChange={e => this.setState({ fullname: e.target.value })} {...FullNameInputProps} />
           </FormGroup>
           <FormGroup>
           <Label for={DoctorNameLabel}>{DoctorNameLabel}</Label>
-          <Input {...DoctorNameInputProps} />
+          <Input onChange={e => this.setState({ doctorname: e.target.value })} {...DoctorNameInputProps} />
           </FormGroup>
           <FormGroup>
           <Label for={DoctorIdLabel}>{DoctorIdLabel}</Label>
-          <Input {...DoctorIdInputProps} />
+          <Input onChange={e => this.setState({ doctorid: e.target.value })} {...DoctorIdInputProps} />
         </FormGroup>
         <FormGroup>
           <Label for={PatientIdLabel}>{PatientIdLabel}</Label>
-          <Input {...PatienIdInputProps} />
+          <Input onChange={e => this.setState({ patientid: e.target.value })} {...PatienIdInputProps} />
         </FormGroup>
         <FormGroup>
           <Label for={DeviceIdLabel}>{DeviceIdLabel}</Label>
-          <Input {...DeviceIdInputProps} />
+          <Input onChange={e => this.setState({ deviceid: e.target.value })} {...DeviceIdInputProps} />
         </FormGroup>
         </>
         )}
@@ -207,6 +250,7 @@ class AuthForm extends React.Component {
   }
 }
 
+
 // export const validationStatus = this.props.validateLoginStatus;
 export const STATE_LOGIN = 'LOGIN';
 export const STATE_SIGNUP = 'SIGNUP';
@@ -236,10 +280,10 @@ AuthForm.propTypes = {
 AuthForm.defaultProps = {
   authState: 'LOGIN',
   showLogo: true,
-  usernameLabel: 'Email',
+  usernameLabel: 'Username',
   usernameInputProps: {
-    type: 'email',
-    placeholder: 'your@email.com',
+    type: 'string',
+    placeholder: 'your username',
   },
   passwordLabel: 'Password',
   passwordInputProps: {
