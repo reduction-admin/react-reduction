@@ -75,26 +75,22 @@ class AuthForm extends React.Component {
         .catch(err => { console.log(err); 
         });
     }else if(this.props.authState=='SIGNUP'){
-
-      let registrationObject = {
-        User_Id : `USERNAME#${this.state.username}`,
-        Device_Id: `DEVICE#${this.state.deviceid}`,
-        User_Password: this.state.password,
-        User_Fullname: this.state.fullname,
-        Doctor_Name: this.state.doctorname,
-        Doctor_Id: this.state.doctorid,
-        Patient_Id: this.state.patientid
-      }
     
       console.log("Inside Registration function");
-        fetch('https://iky6jfqxu9.execute-api.us-west-1.amazonaws.com/Production/insertuser', {
+        fetch('https://j982ampfu3.execute-api.us-west-1.amazonaws.com/Production/insert', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            registrationObject
+            User_Id : `USERNAME#${this.state.username}`,
+            Device_Id: `DEVICE#${this.state.deviceid}`,
+            User_Password: this.state.password,
+            User_Fullname: this.state.fullname,
+            Doctor_Name: this.state.doctorname,
+            Doctor_Id: this.state.doctorid,
+            Patient_Id: this.state.patientid
           })
         })
         .then(response => response.json())
