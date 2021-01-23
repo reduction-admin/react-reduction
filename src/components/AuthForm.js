@@ -43,6 +43,7 @@ class AuthForm extends React.Component {
     
     if(this.props.authState=='LOGIN'){
       
+      console.log("The username:", this.props.username);
       console.log("Inside login function");
         fetch('https://spc89vwj89.execute-api.us-west-1.amazonaws.com/Production', {
           method: 'POST',
@@ -153,6 +154,9 @@ class AuthForm extends React.Component {
       DeviceIdInputProps
     } = this.props;
 
+    console.log("The props:", this.props)
+
+    console.log("121The username:", this.props.username);
     
     
 
@@ -171,11 +175,15 @@ class AuthForm extends React.Component {
         )}
         <FormGroup>
           <Label for={usernameLabel}>{usernameLabel}</Label>
-          <Input onChange={e => this.setState({ username: e.target.value })} {...usernameInputProps} />
+          <Input onChange={e => {
+            usernameInputProps.inputvalue = e.target.value
+            this.setState({ username: e.target.value })}} {...usernameInputProps} />
         </FormGroup>
         <FormGroup>
           <Label for={passwordLabel}>{passwordLabel}</Label>
-          <Input onChange={e => this.setState({ password: e.target.value })} {...passwordInputProps } />
+          <Input onChange={e =>{
+            passwordInputProps.inputvalue = e.target.value
+            this.setState({ password: e.target.value })}} {...passwordInputProps } />
         </FormGroup>
         {this.isSignup && (
           <>
@@ -185,23 +193,34 @@ class AuthForm extends React.Component {
           </FormGroup>
           <FormGroup>
           <Label for={FullNameLabel}>{FullNameLabel}</Label>
-          <Input onChange={e => this.setState({ fullname: e.target.value })} {...FullNameInputProps} />
+          <Input onChange={e => {
+            FullNameInputProps.inputvalue = e.target.value
+            this.setState({ fullname: e.target.value })}} {...FullNameInputProps} />
           </FormGroup>
           <FormGroup>
           <Label for={DoctorNameLabel}>{DoctorNameLabel}</Label>
-          <Input onChange={e => this.setState({ doctorname: e.target.value })} {...DoctorNameInputProps} />
+          <Input onChange={e => {
+            DoctorNameInputProps.inputvalue = e.target.value
+            this.setState({ doctorname: e.target.value })}} {...DoctorNameInputProps} />
           </FormGroup>
           <FormGroup>
           <Label for={DoctorIdLabel}>{DoctorIdLabel}</Label>
-          <Input onChange={e => this.setState({ doctorid: e.target.value })} {...DoctorIdInputProps} />
+          <Input onChange={e => {
+            DoctorIdInputProps.inputvalue = e.target.value
+            this.setState({ doctorid: e.target.value })}} {...DoctorIdInputProps} />
         </FormGroup>
         <FormGroup>
           <Label for={PatientIdLabel}>{PatientIdLabel}</Label>
-          <Input onChange={e => this.setState({ patientid: e.target.value })} {...PatienIdInputProps} />
+          <Input onChange={e => {
+            PatienIdInputProps.inputvalue = e.target.value
+            this.setState({ patientid: e.target.value })}}
+             {...PatienIdInputProps} />
         </FormGroup>
         <FormGroup>
           <Label for={DeviceIdLabel}>{DeviceIdLabel}</Label>
-          <Input onChange={e => this.setState({ deviceid: e.target.value })} {...DeviceIdInputProps} />
+          <Input onChange={e => {
+            DeviceIdInputProps.inputvalue = e.target.value
+            this.setState({ deviceid: e.target.value })}} {...DeviceIdInputProps} />
         </FormGroup>
         </>
         )}
@@ -251,6 +270,7 @@ class AuthForm extends React.Component {
 export const STATE_LOGIN = 'LOGIN';
 export const STATE_SIGNUP = 'SIGNUP';
 
+
 AuthForm.propTypes = {
   authState: PropTypes.oneOf([STATE_LOGIN, STATE_SIGNUP]).isRequired,
   showLogo: PropTypes.bool,
@@ -280,41 +300,49 @@ AuthForm.defaultProps = {
   usernameInputProps: {
     type: 'string',
     placeholder: 'your username',
+    inputvalue: ''
   },
   passwordLabel: 'Password',
   passwordInputProps: {
     type: 'password',
     placeholder: 'your password',
+    inputvalue: ''
   },
   confirmPasswordLabel: 'Confirm Password',
   confirmPasswordInputProps: {
     type: 'password',
     placeholder: 'confirm your password',
+    inputvalue: ''
   },
   FullNameLabel: 'Patient Full Name',
   FullNameInputProps: {
     type: 'string',
     placeholder: 'Your full name',
+    inputvalue: ''
   },
   DoctorNameLabel: 'Doctor Name',
   DoctorNameInputProps: {
     type: 'string',
     placeholder: 'Doctors name',
+    inputvalue: ''
   },
   DoctorIdLabel: 'Doctor ID',
   DoctorIdInputProps: {
     type: 'string',
     placeholder: 'Doctors ID',
+    inputvalue: ''
   },
   PatientIdLabel: 'Patient ID',
   PatienIdInputProps: {
     type: 'string',
     placeholder: 'Patient ID',
+    inputvalue: ''
   },
   DeviceIdLabel: 'HIVE Device ID',
   DeviceIdInputProps: {
     type: 'string',
     placeholder: 'HIVE device ID',
+    inputvalue: ''
   },
 
   onLogoClick: () => {},

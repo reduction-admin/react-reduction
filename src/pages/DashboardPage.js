@@ -44,6 +44,7 @@ import {
   Row,
 } from 'reactstrap';
 import { getColor } from 'utils/colors';
+import AuthForm from '../components/AuthForm'
 
 const today = new Date();
 const lastWeek = new Date(
@@ -102,6 +103,7 @@ class DashboardPage extends React.Component {
     const secondaryColor = getColor('secondary'); 
     console.log("Dur", this.state.dur);
     const pd = this.state.PatData;
+    console.log("Authform:",AuthForm.defaultProps)
     
     return (
 
