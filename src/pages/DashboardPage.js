@@ -45,6 +45,7 @@ import {
 } from 'reactstrap';
 import { getColor } from 'utils/colors';
 import AuthForm from '../components/AuthForm'
+import _ from 'lodash'
 
 const today = new Date();
 const lastWeek = new Date(
@@ -103,6 +104,7 @@ class DashboardPage extends React.Component {
     const secondaryColor = getColor('secondary'); 
     console.log("Dur", this.state.dur);
     const pd = this.state.PatData;
+    let pd_sorted = _.orderBy(pd, ['ts'],'desc');
     console.log("Authform:",AuthForm.defaultProps)
     
     return (
@@ -169,7 +171,7 @@ class DashboardPage extends React.Component {
             />
           </Col>
         </Row>
-
+{/* 
         <Row>
           <Col lg="8" md="12" sm="12" xs="12">
             <Card>
@@ -209,7 +211,7 @@ class DashboardPage extends React.Component {
               </ListGroup>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
 
         {/* <CardGroup style={{ marginBottom: '1rem' }}>
           <IconWidget
@@ -462,7 +464,8 @@ class DashboardPage extends React.Component {
                   </tr>
               </thead>
               <tbody>
-                  {Array.isArray(pd) && pd.map(friend => {
+                  {
+                  Array.isArray(pd_sorted) && pd_sorted.map(friend => {
                       return <tr key={friend.ts}>
                           <td>{friend.ts}</td>
                           <td>{friend.Connection_Start}</td>

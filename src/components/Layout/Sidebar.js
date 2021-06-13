@@ -82,8 +82,8 @@ const pageContents = [
 
 const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
-  { to: '/cards', name: 'Detailed OPAT Data', exact: false, Icon: MdWeb },
-  { to: '/charts', name: 'Treatment Plan Adherence', exact: false, Icon: MdInsertChart },
+  // { to: '/cards', name: 'Detailed OPAT Data', exact: false, Icon: MdWeb },
+  // { to: '/charts', name: 'Treatment Plan Adherence', exact: false, Icon: MdInsertChart },
   // { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
 ];
 
