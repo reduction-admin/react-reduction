@@ -78,8 +78,10 @@ class DashboardPage extends React.Component {
   componentDidMount() {
     // this is needed, because InfiniteCalendar forces window scroll
     window.scrollTo(0, 0);
-  
-    fetch("https://pv9z9cd9b0.execute-api.us-west-1.amazonaws.com/Prod/getdata", {
+
+    let userDataURL = "https://pv9z9cd9b0.execute-api.us-west-1.amazonaws.com/Prod/getdata"
+    const userName = AuthForm.defaultProps.usernameInputProps.inputvalue
+    fetch(userDataURL += '?' + 'userName='+ userName.toString(), {
       "method": "GET"
     })
     .then(response => response.json())
