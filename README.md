@@ -4,7 +4,7 @@
 
 ## Preview
 
-You can check out [live preview](https://reduction-admin.github.io/react-reduction/).
+You can check out [live preview of Hive](https://obscure-forest-81707.herokuapp.com/).
 
 ## Quick Start
 
