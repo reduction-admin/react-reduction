@@ -7,6 +7,7 @@ import {
 } from 'react-icons/md';
 import NotificationSystem from 'react-notification-system';
 import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
+import AuthForm from '../AuthForm'
 
 class MainLayout extends React.Component {
   static isSidebarOpen() {
@@ -31,7 +32,7 @@ class MainLayout extends React.Component {
 
       this.notificationSystem.addNotification({
         title: <MdImportantDevices />,
-        message: 'Welome to Reduction Admin!',
+        message: `${AuthForm.defaultProps.usernameInputProps.inputvalue}, welcome to the Hive Dashboard!`,
         level: 'info',
       });
     }, 1500);
@@ -44,7 +45,7 @@ class MainLayout extends React.Component {
       this.notificationSystem.addNotification({
         title: <MdLoyalty />,
         message:
-          'Reduction is carefully designed template powered by React and Bootstrap4!',
+          'Hive provides the most accurate OPAT Adherence data!',
         level: 'info',
       });
     }, 2500);

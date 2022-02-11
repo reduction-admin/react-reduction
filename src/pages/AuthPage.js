@@ -9,7 +9,7 @@ class AuthPage extends React.Component {
     } else {
       this.props.history.push('/signup');
     }
-  };
+  }; //Checking Master Branch push
 
   handleLogoClick = () => {
     this.props.history.push('/');
@@ -29,6 +29,7 @@ class AuthPage extends React.Component {
               authState={this.props.authState}
               onChangeAuthState={this.handleAuthState}
               onLogoClick={this.handleLogoClick}
+              history = {this.props.history}
             />
           </Card>
         </Col>
