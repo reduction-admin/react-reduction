@@ -13,6 +13,13 @@ class AuthModal extends React.Component {
       show: !this.state.show,
     });
   };
+  toggle = () =>
+  {
+     this.setState({
+       show : !this.state.show,
+     });
+    };
+  }
 
   handleAuthState = authState => {
     this.setState({
@@ -42,6 +49,18 @@ class AuthModal extends React.Component {
       </div>
     );
   }
+}
+ReadableStreamDefaultReader()
+{
+  isOpen={this.state.show}
+  toggle=this.toggle}
+  size="sm"
+  fade={false}
+  centred>
+  <ModalBody>
+  <AuthForm
+    authState={this.state.authcase}
+    onChangeAuthState{this.handle}
 }
 
 export default AuthModal;
