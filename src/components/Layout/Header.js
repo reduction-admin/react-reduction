@@ -46,11 +46,15 @@ const MdNotificationsActiveWithBadge = withBadge({
 })(MdNotificationsActive);
 
 class Header extends React.Component {
-  state = {
-    isOpenNotificationPopover: false,
-    isNotificationConfirmed: false,
-    isOpenUserCardPopover: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOpenNotificationPopover: false,
+      isNotificationConfirmed: false,
+      isOpenUserCardPopover: false,
+    };
+  }
 
   toggleNotificationPopover = () => {
     this.setState({
@@ -63,6 +67,10 @@ class Header extends React.Component {
   };
 
   toggleUserCardPopover = () => {
+    // set isContentClicked state in "MainLyout" component to true
+    // so that when click is outside of popover, isContentClicked will be set to false
+    // then the popover will be closed
+    this.props.handleContentClickStateChange(true);
     this.setState({
       isOpenUserCardPopover: !this.state.isOpenUserCardPopover,
     });
@@ -74,6 +82,15 @@ class Header extends React.Component {
 
     document.querySelector('.cr-sidebar').classList.toggle('cr-sidebar--open');
   };
+
+  componentDidUpdate() {
+    // need to close popover if click is outside of popover :
+    // check if popover is open and isContentClicked is false
+    // if so, close the popover
+    if (this.state.isOpenUserCardPopover && !this.props.isContentClicked) {
+      this.setState({ isOpenUserCardPopover: this.props.isContentClicked });
+    }
+  }
 
   render() {
     const { isNotificationConfirmed } = this.state;
