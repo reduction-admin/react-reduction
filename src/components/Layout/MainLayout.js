@@ -9,6 +9,17 @@ import NotificationSystem from 'react-notification-system';
 import { NOTIFICATION_SYSTEM_STYLE } from 'utils/constants';
 
 class MainLayout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isContentClicked: false, // state to control if Content tag is clicked
+    };
+    // bind handleContentClickStateChange to the current component
+    // so that it can be use as props in Header component
+    this.handleContentClickStateChange =
+      this.handleContentClickStateChange.bind(this);
+  }
+
   static isSidebarOpen() {
     return document
       .querySelector('.cr-sidebar')
@@ -61,6 +72,15 @@ class MainLayout extends React.Component {
     ) {
       this.openSidebar('close');
     }
+    // this.handleContentClickStateChange(false);
+  };
+
+  handleContentClickStateChange(open) {
+    this.setState({ isContentClicked: open });
+  }
+
+  handleMainContentClick = () => {
+    this.handleContentClickStateChange(false);
   };
 
   checkBreakpoint(breakpoint) {
@@ -89,10 +109,13 @@ class MainLayout extends React.Component {
   render() {
     const { children } = this.props;
     return (
-      <main className="cr-app bg-light">
+      <main className="cr-app bg-light" onClick={this.handleMainContentClick}>
         <Sidebar />
         <Content fluid onClick={this.handleContentClick}>
-          <Header />
+          <Header
+            isContentClicked={this.state.isContentClicked}
+            handleContentClickStateChange={this.handleContentClickStateChange}
+          />
           {children}
           <Footer />
         </Content>
