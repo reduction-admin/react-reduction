@@ -57,6 +57,7 @@ class Header extends React.Component {
   }
 
   toggleNotificationPopover = () => {
+    this.props.handleContentClickStateChange(true);
     this.setState({
       isOpenNotificationPopover: !this.state.isOpenNotificationPopover,
     });
@@ -89,6 +90,10 @@ class Header extends React.Component {
     // if so, close the popover
     if (this.state.isOpenUserCardPopover && !this.props.isContentClicked) {
       this.setState({ isOpenUserCardPopover: this.props.isContentClicked });
+    }
+
+    if (this.state.isOpenNotificationPopover && !this.props.isContentClicked) {
+      this.setState({ isOpenNotificationPopover: this.props.isContentClicked });
     }
   }
 
