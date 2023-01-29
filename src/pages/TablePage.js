@@ -1,10 +1,18 @@
 import Page from 'components/Page';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
 const tableTypes = ['', 'bordered', 'striped', 'hover'];
 
 const TablePage = () => {
+  useEffect(() => {
+    return () => {
+      if (tableTypes && tableTypes.length) {
+        tableTypes.splice(0, tableTypes.length);
+      }
+    };
+  }, []);
+
   return (
     <Page
       title="Tables"
